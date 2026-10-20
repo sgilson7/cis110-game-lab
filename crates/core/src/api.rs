@@ -184,6 +184,10 @@ mod tests {
         assert_eq!(next["heading"], "Monday, October 26");
         assert_eq!(next["when"], "Due in 7 days, at 5:00 PM ET");
         assert_eq!(next["progress"], "Checkpoint 1 of 7");
+        assert_eq!(
+            words(&next["what"]),
+            "Form your team and create your shared folder."
+        );
         assert_eq!(next["finished"], false);
     }
 
@@ -268,6 +272,7 @@ mod tests {
             status,
             vec!["done", "done", "done", "next", "break", "upcoming", "upcoming", "upcoming"]
         );
+        assert_eq!(rows[0]["status_label"], "Closed");
         assert_eq!(rows[7]["status_label"], "Graded · 100 points");
     }
 

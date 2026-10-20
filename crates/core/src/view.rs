@@ -52,6 +52,7 @@ pub struct NextText {
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct CheckpointText {
+    pub summary: String,
     pub detail: String,
     pub todo: Vec<String>,
 }
@@ -577,7 +578,7 @@ fn next(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<Next, Str
         finished: false,
         heading: long_date(&strings.names, parse_day(&c.date)?),
         when: fill(when, &v)?,
-        what: render(&format!("{}: {}", c.phase, c.syllabus), &v)?,
+        what: render(&words.summary, &v)?,
         todo: all(&words.todo, &v)?,
         progress: fill(&t.progress, &v)?,
         rail,

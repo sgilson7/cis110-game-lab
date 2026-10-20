@@ -75,5 +75,19 @@
     "find": "definition: fill(&h.definition, &v)?,",
     "replace": "definition: h.definition.clone(),",
     "test": "hover_hints_have_their_numbers_filled_by_the_core"
+  },
+  {
+    "name": "a long sentence is caught",
+    "file": "data/strings.json",
+    "find": "You don't write any code.",
+    "replace": "You don't write any code at all, not even one line, because this course is about Office and the game is built later by the instructor with a framework.",
+    "test": "every_student_facing_sentence_is_under_25_words"
+  },
+  {
+    "name": "the next card uses the summary",
+    "file": "crates/core/src/view.rs",
+    "find": "what: render(&words.summary, &v)?,",
+    "replace": "what: render(&c.phase, &v)?,",
+    "test": "on_census_day_the_next_checkpoint_is_team_up_in_seven_days"
   }
 ]

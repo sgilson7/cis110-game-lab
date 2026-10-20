@@ -3,28 +3,94 @@
   "title": "Collaborative Game Design Project",
   "course": "CIS 110 LN182 · Introduction to Computers · Fall 2026, second 8-week session",
   "names": {
-    "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "weekdays_short": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    "months_short": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "weekdays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "weekdays_short": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "months_short": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
     "am": "AM",
     "pm": "PM"
   },
   "nav": [
-    { "href": "#submit", "label": "What to submit" },
-    { "href": "#schedule", "label": "Schedule" },
-    { "href": "#how", "label": "How it works" },
-    { "href": "#setup", "label": "Set up your folder" },
-    { "href": "#roles", "label": "Team roles" },
-    { "href": "#grading", "label": "Grading" },
-    { "href": "#after", "label": "After you submit" },
-    { "href": "#faq", "label": "FAQ" }
+    {
+      "href": "#submit",
+      "label": "What to submit"
+    },
+    {
+      "href": "#schedule",
+      "label": "Schedule"
+    },
+    {
+      "href": "#how",
+      "label": "How it works"
+    },
+    {
+      "href": "#setup",
+      "label": "Set up your folder"
+    },
+    {
+      "href": "#roles",
+      "label": "Team roles"
+    },
+    {
+      "href": "#grading",
+      "label": "Grading"
+    },
+    {
+      "href": "#after",
+      "label": "After you submit"
+    },
+    {
+      "href": "#faq",
+      "label": "FAQ"
+    }
   ],
   "intro": {
     "eyebrow": "Capstone project · teams of {team_min} to {team_max}",
     "paragraphs": [
-      "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files, and I turn that design into a game you can play in a web browser, using a game-making framework I built as part of my PhD.",
-      "The project runs alongside the SAM modules, so you write each file while you're learning its app: the design document in Word, the game data in Excel, and the summary in PowerPoint."
+      "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files. I then turn your design into a game you can play in a web browser, using a game-making framework I built for my PhD.",
+      "The project runs alongside the SAM modules. You write each file while you're learning its app: the design document in Word, the game data in Excel, and the summary in PowerPoint."
     ],
     "note": "All deadlines are at {due_time}. Late work loses {late_percent}%."
   },
@@ -39,42 +105,89 @@
   },
   "checkpoints": {
     "C1": {
+      "summary": "Form your team and create your shared folder.",
       "detail": "Join a team in Blackboard. One person creates the shared folder and shares it with everyone, including me. Each member adds a row to the **Team** sheet, and your team writes a short team charter.",
-      "todo": ["Join a team of {team_min} to {team_max} in Blackboard", "Create the shared folder and add the three templates", "Share the folder with every teammate and me as **Can edit**", "Add your row to the **Team** sheet"]
+      "todo": [
+        "Join a team of {team_min} to {team_max} in Blackboard",
+        "Create the shared folder and add the three templates",
+        "Share the folder with every teammate and me as **Can edit**",
+        "Add your row to the **Team** sheet"
+      ]
     },
     "C2": {
+      "summary": "Choose your game idea and give each person a role.",
       "detail": "Each member adds one slide that pitches a game idea. Your team then picks one idea and records each person's role in the **Team** sheet.",
-      "todo": ["Add one pitch slide each to `GamePitch.pptx`", "Choose one game idea as a team", "Record each person's role in the **Team** sheet"]
+      "todo": [
+        "Add one pitch slide each to `GamePitch.pptx`",
+        "Choose one game idea as a team",
+        "Record each person's role in the **Team** sheet"
+      ]
     },
     "C3": {
+      "summary": "Have a draft of the design document in your folder.",
       "detail": "Every heading in the design document has text. Each member leaves at least one comment on a section that someone else wrote.",
-      "todo": ["Write something under every heading in `GameDesign.docx`", "Comment on one section a teammate wrote"]
+      "todo": [
+        "Write something under every heading in `GameDesign.docx`",
+        "Comment on one section a teammate wrote"
+      ]
     },
     "C4": {
+      "summary": "Have a draft of the game data workbook in your folder.",
       "detail": "The workbook has at least {min_rows} complete rows of game data, and every number in the design document appears in it.",
-      "todo": ["Fill at least {min_rows} complete rows in `GameData.xlsx`", "Move every number from the design document into the workbook", "Comment on one sheet a teammate filled"]
+      "todo": [
+        "Fill at least {min_rows} complete rows in `GameData.xlsx`",
+        "Move every number from the design document into the workbook",
+        "Comment on one sheet a teammate filled"
+      ]
     },
     "C5": {
+      "summary": "Have a draft of the presentation in your folder.",
       "detail": "Every slide in the presentation has a draft. After this deadline, I download your folder and start building a playable prototype of your game.",
-      "todo": ["Draft every slide in `GamePitch.pptx`", "Draw a mock-up of one screen with shapes", "Comment on one slide a teammate made"]
+      "todo": [
+        "Draft every slide in `GamePitch.pptx`",
+        "Draw a mock-up of one screen with shapes",
+        "Comment on one slide a teammate made"
+      ]
     },
     "C6": {
+      "summary": "Play your prototype and share your complete folder for feedback.",
       "detail": "Play the prototype I send you, and write what should change in the **Changes** sheet. I reply to each request and leave comments in your files.",
-      "todo": ["Play your team's prototype", "Add change requests to the **Changes** sheet", "Read my comments in your files"]
+      "todo": [
+        "Play your team's prototype",
+        "Add change requests to the **Changes** sheet",
+        "Read my comments in your files"
+      ]
     },
     "C7": {
+      "summary": "Submit your final files, the folder link, and each member's contribution.",
       "detail": "Submit the folder link in Blackboard with one sentence about what each member contributed. Then complete the private peer rating survey in Blackboard.",
-      "todo": ["Make your final edits to all three files", "Submit the folder link in Blackboard with each member's contribution", "Complete the private peer rating survey"]
+      "todo": [
+        "Make your final edits to all three files",
+        "Submit the folder link in Blackboard with each member's contribution",
+        "Complete the private peer rating survey"
+      ]
     }
   },
   "stats": [
-    { "value": "{team_min}–{team_max}", "label": "students per team" },
-    { "value": "{files}", "label": "Office files in one shared folder" },
-    { "value": "{checkpoints}", "label": "checkpoints, with one graded submission" },
-    { "value": "{total}", "label": "points, graded once" }
+    {
+      "value": "{team_min}–{team_max}",
+      "label": "students per team"
+    },
+    {
+      "value": "{files}",
+      "label": "Office files in one shared folder"
+    },
+    {
+      "value": "{checkpoints}",
+      "label": "checkpoints, with one graded submission"
+    },
+    {
+      "value": "{total}",
+      "label": "points, graded once"
+    }
   ],
   "status": {
-    "done": "Passed",
+    "done": "Closed",
     "next": "Next",
     "upcoming": "Upcoming",
     "graded": "Graded · {total} points",
@@ -86,19 +199,77 @@
       "kind": "files",
       "eyebrow": "Deliverables",
       "heading": "What to submit",
-      "lede": ["Your team keeps three files in one shared OneDrive folder. Download the templates below and keep their file names, because I use the names and headings to find each part of your design."],
-      "items": [
-        { "id": "word", "title": "Game design document", "file": "GameDesign.docx", "tag": "W", "text": "A {word_pages_min}–{word_pages_max} page description of your game, written in your team's own words under the template's ten headings.", "bullets": ["What the player is trying to do", "Every control: each key, click, or tap", "The rules, and how the player wins or loses", "What one round of play looks like", "What's in scope, what's a stretch goal, and what you're leaving out"] },
-        { "id": "excel", "title": "Game data workbook", "file": "GameData.xlsx", "tag": "X", "text": "Every number and list your game needs, one row per item, under the headers already in the template.", "bullets": ["Levels, characters, enemies, and items", "Exact values, such as speed, health, points, and time limits", "The words your game uses, and what each one means", "Every image or sound, with who made it and its license"] },
-        { "id": "ppt", "title": "Design summary", "file": "GamePitch.pptx", "tag": "P", "text": "A {slides_min}–{slides_max} slide presentation that explains your design to someone who hasn't read the document.", "bullets": ["The central idea, on one slide", "The gameplay loop, as a diagram", "The key rules", "A mock-up of one screen, drawn with shapes"] }
+      "lede": [
+        "Your team keeps three files in one shared OneDrive folder. Download the templates below and keep their file names, because I use the names and headings to find each part of your design."
       ],
-      "labels": { "due": "Draft due", "points": "Points" },
+      "items": [
+        {
+          "id": "word",
+          "title": "Game design document",
+          "file": "GameDesign.docx",
+          "tag": "W",
+          "text": "A {word_pages_min}–{word_pages_max} page description of your game, written in your team's own words under the template's ten headings.",
+          "bullets": [
+            "What the player is trying to do",
+            "Every control: each key, click, or tap",
+            "The rules, and how the player wins or loses",
+            "What one round of play looks like",
+            "What's in scope, what's a stretch goal, and what you're leaving out"
+          ]
+        },
+        {
+          "id": "excel",
+          "title": "Game data workbook",
+          "file": "GameData.xlsx",
+          "tag": "X",
+          "text": "Every number and list your game needs, one row per item, under the headers already in the template.",
+          "bullets": [
+            "Levels, characters, enemies, and items",
+            "Exact values, such as speed, health, points, and time limits",
+            "The words your game uses, and what each one means",
+            "Every image or sound, with who made it and its license"
+          ]
+        },
+        {
+          "id": "ppt",
+          "title": "Design summary",
+          "file": "GamePitch.pptx",
+          "tag": "P",
+          "text": "A {slides_min}–{slides_max} slide presentation that explains your design to someone who hasn't read the document.",
+          "bullets": [
+            "The central idea, on one slide",
+            "The gameplay loop, as a diagram",
+            "The key rules",
+            "A mock-up of one screen, drawn with shapes"
+          ]
+        }
+      ],
+      "labels": {
+        "due": "Draft due",
+        "points": "Points"
+      },
       "note": "The remaining {rest} points cover your game concept and scope ({points:concept} points) and how your team organized and shared the folder ({points:collab} points).",
       "downloads": [
-        { "href": "data/templates/GameDesign.docx", "title": "GameDesign.docx", "text": "Word template" },
-        { "href": "data/templates/GameData.xlsx", "title": "GameData.xlsx", "text": "Excel template" },
-        { "href": "data/templates/GamePitch.pptx", "title": "GamePitch.pptx", "text": "PowerPoint template" },
-        { "href": "data/templates/example-lava-lanes.zip", "title": "Example folder (ZIP)", "text": "A completed sample for a made-up game" }
+        {
+          "href": "data/templates/GameDesign.docx",
+          "title": "GameDesign.docx",
+          "text": "Word template"
+        },
+        {
+          "href": "data/templates/GameData.xlsx",
+          "title": "GameData.xlsx",
+          "text": "Excel template"
+        },
+        {
+          "href": "data/templates/GamePitch.pptx",
+          "title": "GamePitch.pptx",
+          "text": "PowerPoint template"
+        },
+        {
+          "href": "data/templates/example-lava-lanes.zip",
+          "title": "Example folder (ZIP)",
+          "text": "A completed sample for a made-up game"
+        }
       ]
     },
     {
@@ -106,25 +277,64 @@
       "kind": "schedule",
       "eyebrow": "Schedule",
       "heading": "Checkpoints and due dates",
-      "lede": ["The project has {checkpoints} checkpoints. At each checkpoint before the last, I check your shared folder and leave comments in your files. I grade the folder once, after the final deadline on {long:C7}."],
-      "note": "**Prototype round (ungraded).** I plan to send each team a link to a playable version of its game by {links_by}, built from your folder as it was on {long:C5}. Your grade doesn't depend on the prototype."
+      "lede": [
+        "The project has {checkpoints} checkpoints. At each checkpoint before the last, I check your shared folder and leave comments in your files. I grade the folder once, after the final deadline on {long:C7}."
+      ],
+      "note": "**Prototype round (ungraded).** By {links_by}, I plan to send each team a link to a playable version of its game. I build it from your folder as it was on {long:C5}. Your grade doesn't depend on the prototype."
     },
     {
       "id": "how",
       "kind": "flow",
       "eyebrow": "How it works",
       "heading": "How your design becomes a game",
-      "lede": ["Your team designs the game, and I build it. I use an AI coding agent that works inside a framework designed to check its own work. The agent reads exactly what you write, so the clearer your files are, the closer the game is to what you meant."],
-      "labels": { "team": "Your team", "me": "Instructor" },
+      "lede": [
+        "Your team designs the game, and I build it. I use an AI coding agent that works inside a framework designed to check its own work. The agent reads exactly what you write, so the clearer your files are, the closer the game is to what you meant."
+      ],
+      "labels": {
+        "team": "Your team",
+        "me": "Instructor"
+      },
       "items": [
-        { "owner": "team", "title": "Form your team", "text": "Create the shared folder, share it, and fill in the **Team** sheet." },
-        { "owner": "team", "title": "Pitch and choose", "text": "Each person pitches one idea. Pick one as a team and assign roles." },
-        { "owner": "team", "title": "Write and fill in", "text": "Write the design document, fill in the workbook, then build the slides." },
-        { "owner": "me", "title": "Build a prototype", "text": "I download your folder after {short:C5} and build a first playable version." },
-        { "owner": "team", "title": "Play and request changes", "text": "Play the prototype and list what should change in the **Changes** sheet." },
-        { "owner": "me", "title": "Give feedback", "text": "I reply to your requests and comment in your files by {short:C6}." },
-        { "owner": "team", "title": "Submit", "text": "Make final edits and submit the folder link in Blackboard by {short:C7}." },
-        { "owner": "me", "title": "Post the game, with permission", "text": "If everyone on your team agrees, I post your game to the class gallery." }
+        {
+          "owner": "team",
+          "title": "Form your team",
+          "text": "Create the shared folder, share it, and fill in the **Team** sheet."
+        },
+        {
+          "owner": "team",
+          "title": "Pitch and choose",
+          "text": "Each person pitches one idea. Pick one as a team and assign roles."
+        },
+        {
+          "owner": "team",
+          "title": "Write and fill in",
+          "text": "Write the design document, fill in the workbook, then build the slides."
+        },
+        {
+          "owner": "me",
+          "title": "Build a prototype",
+          "text": "I download your folder after {short:C5} and build a first playable version."
+        },
+        {
+          "owner": "team",
+          "title": "Play and request changes",
+          "text": "Play the prototype and list what should change in the **Changes** sheet."
+        },
+        {
+          "owner": "me",
+          "title": "Give feedback",
+          "text": "I reply to your requests and comment in your files by {short:C6}."
+        },
+        {
+          "owner": "team",
+          "title": "Submit",
+          "text": "Make final edits and submit the folder link in Blackboard by {short:C7}."
+        },
+        {
+          "owner": "me",
+          "title": "Post the game, with permission",
+          "text": "If everyone on your team agrees, I post your game to the class gallery."
+        }
       ]
     },
     {
@@ -132,21 +342,47 @@
       "kind": "setup",
       "eyebrow": "Microsoft 365",
       "heading": "Set up your shared folder",
-      "lede": ["Use your CCCC Microsoft 365 account for this project. You can work in Word, Excel, and PowerPoint in a web browser, or in the desktop apps with AutoSave turned on. Either way, your teammates see your changes as you make them."],
+      "lede": [
+        "Use your CCCC Microsoft 365 account for this project. You can work in Word, Excel, and PowerPoint in a web browser, or in the desktop apps with AutoSave turned on. Either way, your teammates see your changes as you make them."
+      ],
       "tabs": [
         {
           "id": "m365",
           "label": "Microsoft 365",
           "lede": "",
           "items": [
-            { "title": "Sign in to Microsoft 365.", "text": "Go to `microsoft365.com` and sign in with your CCCC student email address and password. Then open **OneDrive** from the app list." },
-            { "title": "Create the folder (one person).", "text": "Your team's Coordinator selects **Create or upload** > **Folder** and names it `CIS110 Team 04 – Game Name`, using your team number and game name." },
-            { "title": "Add the templates.", "text": "Download the three templates from this page or from Blackboard, and upload them to the folder. Don't rename them." },
-            { "title": "Share the folder.", "text": "Select the folder, and then select **Share**. Enter each teammate's CCCC email address and mine, `sgils676@cccc.edu`. Set the permission to **Can edit**, and then select **Send**." },
-            { "title": "Add a shortcut (everyone else).", "text": "In OneDrive, open **Shared**, find your team's folder, and select **Add shortcut to My files**. The folder now appears with your own files." },
-            { "title": "Work in the files together.", "text": "Edit the parts you own. To ask a teammate a question, add a comment and type **@** followed by their name." },
-            { "title": "Check your version history.", "text": "To see who changed what, select **File** > **Info** > **Version History**. I use version history, comments, and the **Team** sheet to see each person's contribution." },
-            { "title": "Submit the folder link.", "text": "Select the folder, select **Share** > **Copy link**, and paste the link into the Blackboard submission." }
+            {
+              "title": "Sign in to Microsoft 365.",
+              "text": "Go to `microsoft365.com` and sign in with your CCCC student email address and password. Then open **OneDrive** from the app list."
+            },
+            {
+              "title": "Create the folder (one person).",
+              "text": "Your team's Coordinator selects **Create or upload** > **Folder** and names it `CIS110 Team 04 – Game Name`, using your team number and game name."
+            },
+            {
+              "title": "Add the templates.",
+              "text": "Download the three templates from this page or from Blackboard, and upload them to the folder. Don't rename them."
+            },
+            {
+              "title": "Share the folder.",
+              "text": "Select the folder, and then select **Share**. Enter each teammate's CCCC email address and mine, `sgils676@cccc.edu`. Set the permission to **Can edit**, and then select **Send**."
+            },
+            {
+              "title": "Add a shortcut (everyone else).",
+              "text": "In OneDrive, open **Shared**, find your team's folder, and select **Add shortcut to My files**. The folder now appears with your own files."
+            },
+            {
+              "title": "Work in the files together.",
+              "text": "Edit the parts you own. To ask a teammate a question, add a comment and type **@** followed by their name."
+            },
+            {
+              "title": "Check your version history.",
+              "text": "To see who changed what, select **File** > **Info** > **Version History**. I use version history, comments, and the **Team** sheet to see each person's contribution."
+            },
+            {
+              "title": "Submit the folder link.",
+              "text": "Select the folder, select **Share** > **Copy link**, and paste the link into the Blackboard submission."
+            }
           ]
         },
         {
@@ -154,10 +390,22 @@
           "label": "Google Drive (backup option)",
           "lede": "Use Google Drive only if you can't share the folder in Microsoft 365 after you try again in a browser. If you switch, send me a Blackboard message so that I know where to find your files.",
           "items": [
-            { "title": "Create a folder in Google Drive.", "text": "One person goes to `drive.google.com`, creates a folder, and names it the same way: `CIS110 Team 04 – Game Name`." },
-            { "title": "Upload the templates as they are.", "text": "Upload the three templates without converting them. Google Drive opens Word, Excel, and PowerPoint files in Office editing mode, so they keep their original format." },
-            { "title": "Share the folder.", "text": "Select **Share**, add each teammate and me as **Editor**, and then select **Send**." },
-            { "title": "Submit Office files.", "text": "If a file was converted to Google Docs, Sheets, or Slides, select **File** > **Download** and choose the Microsoft Office format. Put that copy in the folder before you submit the link." }
+            {
+              "title": "Create a folder in Google Drive.",
+              "text": "One person goes to `drive.google.com`, creates a folder, and names it the same way: `CIS110 Team 04 – Game Name`."
+            },
+            {
+              "title": "Upload the templates as they are.",
+              "text": "Upload the three templates without converting them. Google Drive opens Word, Excel, and PowerPoint files in Office editing mode, so they keep their original format."
+            },
+            {
+              "title": "Share the folder.",
+              "text": "Select **Share**, add each teammate and me as **Editor**, and then select **Send**."
+            },
+            {
+              "title": "Submit Office files.",
+              "text": "If a file was converted to Google Docs, Sheets, or Slides, select **File** > **Download** and choose the Microsoft Office format. Put that copy in the folder before you submit the link."
+            }
           ]
         }
       ],
@@ -165,11 +413,33 @@
         "label": "What your folder looks like",
         "path": "OneDrive › My files",
         "folder": "CIS110 Team 04 – Lava Lanes",
-        "files": [{ "name": "GameDesign.docx", "kind": "word" }, { "name": "GamePitch.pptx", "kind": "ppt" }, { "name": "GameData.xlsx", "kind": "excel" }],
+        "files": [
+          {
+            "name": "GameDesign.docx",
+            "kind": "word"
+          },
+          {
+            "name": "GamePitch.pptx",
+            "kind": "ppt"
+          },
+          {
+            "name": "GameData.xlsx",
+            "kind": "excel"
+          }
+        ],
         "sharing": [
-          { "who": "Coordinator", "access": "Owner" },
-          { "who": "Every teammate", "access": "Can edit" },
-          { "who": "Instructor", "access": "Can edit" }
+          {
+            "who": "Coordinator",
+            "access": "Owner"
+          },
+          {
+            "who": "Every teammate",
+            "access": "Can edit"
+          },
+          {
+            "who": "Instructor",
+            "access": "Can edit"
+          }
         ]
       }
     },
@@ -178,13 +448,35 @@
       "kind": "roles",
       "eyebrow": "Team roles",
       "heading": "Choose team roles",
-      "lede": ["At checkpoint 2, give each person a role and record it in the **Team** sheet. Each role owns one part of the project. In a smaller team, some people take two roles."],
+      "lede": [
+        "At checkpoint 2, give each person a role and record it in the **Team** sheet. Each role owns one part of the project. In a smaller team, some people take two roles."
+      ],
       "items": [
-        { "title": "Coordinator", "text": "Owns the shared folder, keeps track of deadlines, and submits the link.", "file": "Team sheet and submission" },
-        { "title": "Design writer", "text": "Leads the design document and keeps it in the team's own words.", "file": "GameDesign.docx" },
-        { "title": "Data lead", "text": "Turns every number and list in the design into rows in the workbook.", "file": "GameData.xlsx" },
-        { "title": "Presenter", "text": "Builds the slides, including the screen mock-up.", "file": "GamePitch.pptx" },
-        { "title": "Art and sound lead", "text": "Finds or makes images and sounds your team has permission to use, and lists each one.", "file": "Assets sheet" }
+        {
+          "title": "Coordinator",
+          "text": "Owns the shared folder, keeps track of deadlines, and submits the link.",
+          "file": "Team sheet and submission"
+        },
+        {
+          "title": "Design writer",
+          "text": "Leads the design document and keeps it in the team's own words.",
+          "file": "GameDesign.docx"
+        },
+        {
+          "title": "Data lead",
+          "text": "Turns every number and list in the design into rows in the workbook.",
+          "file": "GameData.xlsx"
+        },
+        {
+          "title": "Presenter",
+          "text": "Builds the slides, including the screen mock-up.",
+          "file": "GamePitch.pptx"
+        },
+        {
+          "title": "Art and sound lead",
+          "text": "Finds or makes images and sounds your team has permission to use, and lists each one.",
+          "file": "Assets sheet"
+        }
       ]
     },
     {
@@ -192,8 +484,12 @@
       "kind": "rubric",
       "eyebrow": "Grading",
       "heading": "How your project is graded",
-      "lede": ["The project is worth {total} points and is one of the four Capstone Projects in this course, alongside the SAM capstones for Word, Excel, and PowerPoint. I grade your folder once, after the deadline on {long:C7}. Checkpoints aren't graded on their own, but they keep your team on pace."],
-      "labels": { "total": "Total" },
+      "lede": [
+        "The project is worth {total} points. It's one of the four Capstone Projects in this course, alongside the SAM capstones for Word, Excel, and PowerPoint. I grade your folder once, after the deadline on {long:C7}. Checkpoints aren't graded on their own, but they keep your team on pace."
+      ],
+      "labels": {
+        "total": "Total"
+      },
       "note": "Every member needs to make a documented contribution. I review version history, comments, the **Team** sheet, and a short private peer rating that each person completes at the end. A member without a documented contribution might receive a different grade from the rest of the team."
     },
     {
@@ -201,20 +497,61 @@
       "kind": "rules",
       "eyebrow": "After you submit",
       "heading": "What happens to your game",
-      "lede": ["Games built with this framework run in any modern web browser, with nothing to install. If everyone on your team agrees, I post your game to a public class gallery, which you can link from a résumé or portfolio."],
+      "lede": [
+        "Games built with this framework run in any modern web browser, with nothing to install. If everyone on your team agrees, I post your game to a public class gallery, which you can link from a résumé or portfolio."
+      ],
       "items": [
-        { "title": "AI use (level AI-2)", "text": "You can use AI for the tasks I name, such as brainstorming game names. Describe how you used it in section 10 of the design document. You're responsible for checking anything AI produces." },
-        { "title": "Images and sounds", "text": "Use only your own work, or files with a license that allows reuse. List each one in the **Assets** sheet." },
-        { "title": "Private information", "text": "Don't put phone numbers, addresses, grades, or photos of real people in your files." },
-        { "title": "Posting is optional", "text": "Your game is posted only if every team member agrees. Public pages show your team number and game name. Your names appear only if each person opts in." },
-        { "title": "Your grade", "text": "Your grade comes from your files and your collaboration. It doesn't depend on whether the game is built or posted." }
+        {
+          "title": "AI use (level AI-2)",
+          "text": "You can use AI for the tasks I name, such as brainstorming game names. Describe how you used it in section 10 of the design document. You're responsible for checking anything AI produces."
+        },
+        {
+          "title": "Images and sounds",
+          "text": "Use only your own work, or files with a license that allows reuse. List each one in the **Assets** sheet."
+        },
+        {
+          "title": "Private information",
+          "text": "Don't put phone numbers, addresses, grades, or photos of real people in your files."
+        },
+        {
+          "title": "Posting is optional",
+          "text": "Your game is posted only if every team member agrees. Public pages show your team number and game name. Your names appear only if each person opts in."
+        },
+        {
+          "title": "Your grade",
+          "text": "Your grade comes from your files and your collaboration. It doesn't depend on whether the game is built or posted."
+        }
       ],
       "gallery_label": "Examples built with the same framework",
       "gallery": [
-        { "title": "Ape Race", "text": "A vine-swinging racing game", "href": "https://ptonkle.github.io/ape-race/", "image": "data/img/games/ape-race.jpg", "alt": "A screenshot of Ape Race" },
-        { "title": "Long Time Comin'", "text": "A 3D bullet-hell shooter", "href": "https://sgilson7.github.io/long-time-comin/", "image": "data/img/games/long-time-comin.jpg", "alt": "A screenshot of Long Time Comin'" },
-        { "title": "Lowballer", "text": "A 2D marketplace haggling game", "href": "https://sgilson7.github.io/lowballer/", "image": "data/img/games/lowballer.jpg", "alt": "A screenshot of Lowballer" },
-        { "title": "Ribbit King", "text": "Frog golf for up to four players", "href": "https://sgilson7.github.io/ribbit-king/", "image": "data/img/games/ribbit-king.jpg", "alt": "A screenshot of Ribbit King" }
+        {
+          "title": "Ape Race",
+          "text": "A vine-swinging racing game",
+          "href": "https://ptonkle.github.io/ape-race/",
+          "image": "data/img/games/ape-race.jpg",
+          "alt": "A screenshot of Ape Race"
+        },
+        {
+          "title": "Long Time Comin'",
+          "text": "A 3D bullet-hell shooter",
+          "href": "https://sgilson7.github.io/long-time-comin/",
+          "image": "data/img/games/long-time-comin.jpg",
+          "alt": "A screenshot of Long Time Comin'"
+        },
+        {
+          "title": "Lowballer",
+          "text": "A 2D marketplace haggling game",
+          "href": "https://sgilson7.github.io/lowballer/",
+          "image": "data/img/games/lowballer.jpg",
+          "alt": "A screenshot of Lowballer"
+        },
+        {
+          "title": "Ribbit King",
+          "text": "Frog golf for up to four players",
+          "href": "https://sgilson7.github.io/ribbit-king/",
+          "image": "data/img/games/ribbit-king.jpg",
+          "alt": "A screenshot of Ribbit King"
+        }
       ]
     },
     {
@@ -224,13 +561,34 @@
       "heading": "Frequently asked questions",
       "lede": [],
       "items": [
-        { "title": "Do I need to know how to code?", "text": "No. You describe the game in Word, Excel, and PowerPoint, and I do the building." },
-        { "title": "How big should our game be?", "text": "Aim for a game that someone can learn in a minute and finish in about five. One screen and one clear goal is a good place to start." },
-        { "title": "What if a teammate stops responding?", "text": "Send me a Blackboard message before the next checkpoint. I can see each person's contributions in version history, and I'll follow up with your team." },
-        { "title": "Can we use the desktop apps instead of the browser?", "text": "Yes. Open the files from the shared folder and turn on AutoSave so that your teammates see your changes. Don't work on a copy saved to your computer." },
-        { "title": "What if our game doesn't get built?", "text": "Your grade stays the same. It comes from your three files and your collaboration." },
-        { "title": "I can't share the folder in Microsoft 365. What should I do?", "text": "Sign out, sign back in to `microsoft365.com` with your CCCC account, and try again in a browser. If it still doesn't work, use the Google Drive backup option in the setup steps and send me a Blackboard message." },
-        { "title": "Where do I get help?", "text": "Send me a Blackboard course message; I reply within 48 business hours. You can also meet with me during student hours on Thursdays from 5:00 PM to 6:00 PM on Zoom. Email `sgils676@cccc.edu` for the link." }
+        {
+          "title": "Do I need to know how to code?",
+          "text": "No. You describe the game in Word, Excel, and PowerPoint, and I do the building."
+        },
+        {
+          "title": "How big should our game be?",
+          "text": "Aim for a game that someone can learn in a minute and finish in about five. One screen and one clear goal is a good place to start."
+        },
+        {
+          "title": "What if a teammate stops responding?",
+          "text": "Send me a Blackboard message before the next checkpoint. I can see each person's contributions in version history, and I'll follow up with your team."
+        },
+        {
+          "title": "Can we use the desktop apps instead of the browser?",
+          "text": "Yes. Open the files from the shared folder and turn on AutoSave so that your teammates see your changes. Don't work on a copy saved to your computer."
+        },
+        {
+          "title": "What if our game doesn't get built?",
+          "text": "Your grade stays the same. It comes from your three files and your collaboration."
+        },
+        {
+          "title": "I can't share the folder in Microsoft 365. What should I do?",
+          "text": "Sign out, sign back in to `microsoft365.com` with your CCCC account, and try again in a browser. If it still doesn't work, use the Google Drive backup option in the setup steps and send me a Blackboard message."
+        },
+        {
+          "title": "Where do I get help?",
+          "text": "Send me a Blackboard course message; I reply within 48 business hours. You can also meet with me during student hours on Thursdays from 5:00 PM to 6:00 PM on Zoom. Email `sgils676@cccc.edu` for the link."
+        }
       ]
     }
   ],
