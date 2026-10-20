@@ -55,8 +55,8 @@ def run(page, check, engine):
     check(page.locator("ol.steps li").count() == 4, "the Google Drive tab has four steps")
     check("Use Google Drive only if" in page.inner_text(".tab-lede"), "the Google Drive tab opens by saying it is the backup")
 
-    # The gallery: six example games, described for a public, student audience (T6).
-    check(page.locator(".game").count() == 6, "the gallery shows six example games")
+    # The gallery: ten example games, described for a public, student audience (T6).
+    check(page.locator(".game").count() == 10, "the gallery shows ten example games")
     check("third-person action survival game" in page.inner_text("#after"), "Long Time Comin' is described as an action survival game")
     check("bullet" not in page.inner_text("#after").lower(), "no gallery text says bullet hell")
 

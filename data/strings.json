@@ -565,6 +565,34 @@
           "href": "https://sgilson7.github.io/slushline/",
           "image": "data/img/games/slushline.jpg",
           "alt": "A screenshot of Slushline"
+        },
+        {
+          "title": "Galactic Survivors",
+          "text": "Survive twelve minutes of waves on an alien planet, alone or with a friend",
+          "href": "https://sgilson7.github.io/galactic-survivors/",
+          "image": "data/img/games/galactic-survivors.jpg",
+          "alt": "The Galactic Survivors title screen"
+        },
+        {
+          "title": "Extremely Lifelike Fishing",
+          "text": "Kayak fishing where each shoulder and elbow has its own keys",
+          "href": "https://sgilson7.github.io/el-fishing/",
+          "image": "data/img/games/el-fishing.jpg",
+          "alt": "A kayak on open water in Extremely Lifelike Fishing"
+        },
+        {
+          "title": "Mage Tower Battle",
+          "text": "Rebuild a mage college by crafting spells, then defend its towers",
+          "href": "https://sgilson7.github.io/mage-tower-battle/",
+          "image": "data/img/games/mage-tower-battle.jpg",
+          "alt": "The Mage Tower Battle title screen in a library"
+        },
+        {
+          "title": "Packet Alley",
+          "text": "A networking game: follow packets and solve TCP/IP challenges",
+          "href": "https://sgilson7.github.io/packet-alley/",
+          "image": "data/img/games/packet-alley.jpg",
+          "alt": "A Packet Alley level with a small network map"
         }
       ]
     },
