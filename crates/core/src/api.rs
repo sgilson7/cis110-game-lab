@@ -214,7 +214,7 @@ mod tests {
         assert_eq!(next["progress"], "Checkpoint 1 of 7");
         assert_eq!(
             words(&next["what"]),
-            "Form your team and create your shared folder."
+            "Join a team in Blackboard and introduce yourself in your team discussion."
         );
         assert_eq!(next["finished"], false);
     }
@@ -426,7 +426,7 @@ mod tests {
         assert_eq!(tabs[0]["heading"], "Microsoft 365");
         assert_eq!(tabs[1]["heading"], "Google Drive (backup option)");
         let faq = section(&v, "faq")["items"].as_array().unwrap();
-        assert_eq!(faq.len(), 7);
+        assert_eq!(faq.len(), 8);
         assert!(faq.iter().all(|q| q["open"] == true));
     }
 

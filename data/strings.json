@@ -119,22 +119,23 @@
   },
   "checkpoints": {
     "C1": {
-      "summary": "Form your team and create your shared folder.",
-      "detail": "Join a team in Blackboard. One person creates the shared folder and shares it with everyone, including me. Each member adds a row to the **Team** sheet, and your team writes a short team charter.",
+      "summary": "Join a team in Blackboard and introduce yourself in your team discussion.",
+      "detail": "Join a team in Blackboard. Then post a short introduction in your team discussion: when you can work, and what games you like. Use the team discussion to talk until your shared folder is ready.",
       "todo": [
         "Join a team of {team_min} to {team_max} in Blackboard",
-        "Create the shared folder and add the three templates",
-        "Share the folder with every teammate and me as **Can edit**",
-        "Add your row to the **Team** sheet"
+        "Post an introduction in your team discussion",
+        "Reply to each teammate's introduction"
       ]
     },
     "C2": {
-      "summary": "Choose your game idea and give each person a role.",
-      "detail": "Each member adds one slide that pitches a game idea. Your team then picks one idea and records each person's role in the **Team** sheet.",
+      "summary": "Choose your game idea, give each person a role, and create your shared folder.",
+      "detail": "Each member pitches one game idea in the team discussion, and your team picks one. The Coordinator then creates the shared folder and shares it with everyone, including me. Each member adds a row and role to the **Team** sheet, and your team writes a short team charter.",
       "todo": [
-        "Add one pitch slide each to `GamePitch.pptx`",
-        "Choose one game idea as a team",
-        "Record each person's role in the **Team** sheet"
+        "Pitch one game idea each in your team discussion",
+        "Choose one idea and a Coordinator as a team",
+        "Create the shared folder and add the three templates",
+        "Share the folder with every teammate and me as **Can edit**",
+        "Add your row and role to the **Team** sheet"
       ]
     },
     "C3": {
@@ -312,12 +313,12 @@
         {
           "owner": "team",
           "title": "Form your team",
-          "text": "Create the shared folder, share it, and fill in the **Team** sheet."
+          "text": "Join a team in Blackboard and introduce yourselves in your team discussion."
         },
         {
           "owner": "team",
           "title": "Pitch and choose",
-          "text": "Each person pitches one idea. Pick one as a team and assign roles."
+          "text": "Pitch ideas in the team discussion, pick one, assign roles, and create the shared folder."
         },
         {
           "owner": "team",
@@ -357,6 +358,7 @@
       "eyebrow": "Microsoft 365",
       "heading": "Set up your shared folder",
       "lede": [
+        "Your team creates its shared folder at checkpoint 2, after you choose your game. Until then, use your team discussion in Blackboard.",
         "Use your CCCC Microsoft 365 account for this project. You can work in Word, Excel, and PowerPoint in a web browser, or in the desktop apps with AutoSave turned on. Either way, your teammates see your changes as you make them."
       ],
       "tabs": [
@@ -624,6 +626,10 @@
         {
           "title": "How big should our game be?",
           "text": "Aim for a game that someone can learn in a minute and finish in about five. One screen and one clear goal is a good place to start."
+        },
+        {
+          "title": "How does my team talk before we have a shared folder?",
+          "text": "Use your team discussion in Blackboard. To reach your team another way, open **Groups** and send your team a message. I can read every team discussion."
         },
         {
           "title": "What if a teammate stops responding?",

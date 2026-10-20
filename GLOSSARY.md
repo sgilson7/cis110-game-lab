@@ -39,3 +39,9 @@ Not: repository, repo, project directory
 The {team_min} to {team_max} classmates who design one game together.
 
 Not: squad, crew
+
+### Team discussion
+
+Your team's own discussion in Blackboard, where you introduce yourselves and pitch ideas before your shared folder exists. Only your team and the instructor can read it.
+
+Not: chat, group chat, forum

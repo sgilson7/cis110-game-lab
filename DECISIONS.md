@@ -17,3 +17,16 @@ The agent decided, from the defaults in the journal's opening entry:
 - GL-Q7: one pitch slide per member at C2, a team charter at C1, and a comment on another member's section at C3 to C5, as checkpoint expectations.
 - GL-Q8: a private peer rating survey at C7 on CATME's five categories.
 - GL-Q9: the instructor gets Can edit on each folder.
+
+## 2026-10-20
+
+> ok make the first date to have the groups made on monday instead of this friday, so move the due dates around / milestone dates accordingly to accomodate the same end date. are the students able to talk to each other in the blackboard group? I'd like that to be how they maintain communication at first before they create their shared environments
+
+The agent decided (T10):
+
+- Team sign-up closes Monday, 26 October at 5:00 PM ET (C1), not Friday the 23rd; unplaced students are placed on Tuesday the 27th. This answers GL-Q14.
+- Every checkpoint date stays as the syllabus has it. C1 becomes teams formed in Blackboard with introductions in a team discussion; the shared folder moves to C2, with the pitch (now posted in the team discussion, not on slides), the chosen idea and the roles. C3 to C7 are unchanged, because the Word, Excel and PowerPoint drafts follow the SAM modules (R1.11).
+- Teams talk in a Blackboard discussion assigned to the Capstone Teams group set, and through group messages from the Groups page, until the folder exists.
+- The C1 and C2 lines on the page now differ from the syllabus PDF (R2.24).
+- GL-Q7 changes with it: pitches go in the team discussion, not one slide per member, and the team charter moves from C1 to C2.
+

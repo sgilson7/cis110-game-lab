@@ -7,6 +7,7 @@ the page shows. Expected values are worked out by hand from the syllabus
 reloaded with ?on= to see it as of a fixed date, so the checks do not depend
 on the day they run.
 """
+import re
 
 
 def ready(page, url):
@@ -55,6 +56,12 @@ def run(page, check, engine):
     check(page.locator("ol.steps li").count() == 4, "the Google Drive tab has four steps")
     check("Use Google Drive only if" in page.inner_text(".tab-lede"), "the Google Drive tab opens by saying it is the backup")
 
+    # T10: teams form and talk in Blackboard at checkpoint 1; the shared folder comes at checkpoint 2.
+    c1 = page.locator(".row").filter(has=page.locator("time", has_text=re.compile(r"^Mon, Oct 26$"))).inner_text()
+    c2 = page.locator(".row").filter(has=page.locator("time", has_text=re.compile(r"^Mon, Nov 2$"))).inner_text()
+    check("team discussion" in c1 and "folder created" not in c1 and "Create the shared folder" not in c1, "checkpoint 1 is the team discussion, with no folder yet")
+    check("shared folder created" in c2 and "Pitch and set up" in c2, "checkpoint 2 creates the shared folder")
+
     # The gallery: ten example games, described for a public, student audience (T6).
     check(page.locator(".game").count() == 10, "the gallery shows ten example games")
     check("third-person action survival game" in page.inner_text("#after"), "Long Time Comin' is described as an action survival game")
@@ -77,7 +84,7 @@ def run(page, check, engine):
     check(page.locator("#next").is_hidden(), "the print edition has no next-checkpoint card")
     check(page.locator(".row[data-status='done'], .row[data-status='next']").count() == 0, "no checkpoint is marked passed or next")
     check(page.locator("[role='tabpanel']").count() == 2 and page.locator("ol.steps li").count() == 12, "both setup tabs are shown, 8 and 4 steps")
-    check(page.locator("details[open]").count() == 7, "all seven FAQ answers are open")
+    check(page.locator("details[open]").count() == 8, "all eight FAQ answers are open")
     check("sgilson7.github.io/cis110-game-lab" in page.inner_text("#edition-note"), "the print edition says where the web page is")
 
     # The single-file HTML: no script, and every picture and template inside the file.

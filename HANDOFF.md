@@ -57,12 +57,16 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.19: decide whether a prototype link counts as "posting" a game, and where the peer rating lives (GL-Q11, GL-Q12).
 - R2.20: upload the PDF and the single-file HTML to Blackboard and check them in the student preview.
 - R2.23: ask CCCC IT whether it can host the site (email in the journal's T9 entry).
+- R2.24: update the syllabus calendar for C1 and C2, which moved the shared folder to 2 November (T10).
+- R2.25: create the team discussion and test a group message from the student preview before 26 October.
 
 ## Mistakes so far
 
 Page: three small decisions in the first `app.js` (R2.4), moved to the core. Copy: four sentences over 25 words and two unclear labels reached the first deploy (R2.13, R2.14); a test now holds the length. Dates: one wrong claim about SAM timing in the mockup (R1.11).
 
 ## What passed
+
+2026-10-20, T10: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with new checks that C1 is the team discussion and C2 creates the folder.
 
 2026-10-20, T9: `./scripts/check.sh` passed (10 steps, including the export); core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox, WebKit and an iPhone profile. The single-file HTML opened from disk in all three engines with no request outside the file. Deployed as 53c528a; the live browser check passed in all four profiles.
 

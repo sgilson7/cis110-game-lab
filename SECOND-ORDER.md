@@ -42,6 +42,8 @@ One row per assumption, surprise or open item. **Kind** is *divergence* (what wa
 | R2.21 | divergence | The core could call its new flag `print`. | `boundary.rs` bans the word, because `print!` is output. | The flag is `printable`; the address still says `?edition=print`. | `crates/core/tests/boundary.rs` | done |
 | R2.22 | finding | The PDF could print the web page's layout as it is. | Chromium overlapped text where a CSS grid broke across pages (the PowerPoint card, the last schedule row). | In print, the containers that span pages are blocks spaced with margins (`web/style.css`, `@media print`). I checked all 13 pages by eye. | | done |
 | R2.23 | worklist | CCCC can host the site. | I don't know whether CCCC offers faculty web space. The site needs only static files and one setting (`.wasm` served as `application/wasm`). | Ask CCCC IT with the email in the journal's T9 entry. | | person |
+| R2.24 | worklist | The page's checkpoint lines match the syllabus. | Since T10, C1 and C2 differ from the syllabus calendar (page 23): the folder moved from 26 October to 2 November. | Update the syllabus calendar and any Blackboard copy of it, or tell students the assignment page is current. | | person |
+| R2.25 | worklist | Students can use Blackboard groups to talk. | Blackboard's help says students can message their group from the Groups page and that a discussion assigned to a group set is private to each group, but course messaging can be turned off per course. CCCC's setting is unknown. | Create the team discussion and send yourself a test group message from the student preview before 26 October. | | person |
 
 ## Strings written by the agent
 
@@ -52,3 +54,4 @@ Each reader-visible string the agent wrote, with its key, for the person to read
 | all of `data/strings.json` | Written by the agent on 2026-10-19 in Google developer documentation style (T5); reviewed line by line in the journal's comparison entry. |
 | `GLOSSARY.md` | Six student-facing terms with `Not:` lines (GL-4). |
 | `edition` in `data/strings.json`, and the `<noscript>` line in `web/index.html` | "PDF version", "Offline copy (HTML)", the print edition's note on where the web page is, and "The PDF version has the same information." (T9). |
+| C1, C2, the flow cards, the setup lede and one FAQ in `data/strings.json`; `Team discussion` in `GLOSSARY.md` | Rewritten for T10: introductions and pitches in a Blackboard team discussion, the shared folder at C2. |
