@@ -50,6 +50,11 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.9: confirm the instructor email may appear on the public page.
 - R2.10: confirm the prototype date, Thursday, December 3.
 - R2.12: confirm with Peter that Ape Race may appear in the gallery.
+- R2.15: run the forms script once in Google and submit a test answer to each form without a Google account (GL-Q10).
+- R2.16: follow the Blackboard group steps once in the course before the first announcement.
+- R2.17: merge Builder PR #1 before the 30 November build, or point the build prompt at its branch.
+- R2.18: choose Google Forms or Microsoft Forms for answers that hold grades (GL-Q10).
+- R2.19: decide whether a prototype link counts as "posting" a game, and where the peer rating lives (GL-Q11, GL-Q12).
 
 ## Mistakes so far
 
@@ -61,4 +66,4 @@ Page: three small decisions in the first `app.js` (R2.4), moved to the core. Cop
 
 ## The next action
 
-Walk through the Microsoft 365 setup steps with a CCCC student account (R2.7), then link the page from Blackboard.
+Walk through the Microsoft 365 setup steps with a CCCC student account (R2.7), then link the page from Blackboard. The materials for running the project (forms, Blackboard steps, announcements, grading workbook, build day) are in the journal's `kit/` folder and its "Running the project" page, not in this repository (T8).
