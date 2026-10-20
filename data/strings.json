@@ -533,7 +533,7 @@
         },
         {
           "title": "Long Time Comin'",
-          "text": "A 3D bullet-hell shooter",
+          "text": "A third-person action survival game",
           "href": "https://sgilson7.github.io/long-time-comin/",
           "image": "data/img/games/long-time-comin.jpg",
           "alt": "A screenshot of Long Time Comin'"
@@ -551,6 +551,20 @@
           "href": "https://sgilson7.github.io/ribbit-king/",
           "image": "data/img/games/ribbit-king.jpg",
           "alt": "A screenshot of Ribbit King"
+        },
+        {
+          "title": "Vagrancy",
+          "text": "Two-player sword fighting where each player controls only the arms",
+          "href": "https://sgilson7.github.io/vagrancy/",
+          "image": "data/img/games/vagrancy.jpg",
+          "alt": "A screenshot of Vagrancy"
+        },
+        {
+          "title": "Slushline",
+          "text": "Pour slush onto cups on a moving belt",
+          "href": "https://sgilson7.github.io/slushline/",
+          "image": "data/img/games/slushline.jpg",
+          "alt": "A screenshot of Slushline"
         }
       ]
     },
