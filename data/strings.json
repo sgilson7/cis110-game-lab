@@ -271,6 +271,11 @@
           "text": "Word template"
         },
         {
+          "href": "data/templates/tool/GameDesign.docx",
+          "title": "GameDesign.docx (tool version)",
+          "text": "Word template for a team designing a tool"
+        },
+        {
           "href": "data/templates/GameData.xlsx",
           "title": "GameData.xlsx",
           "text": "Excel template"
@@ -651,7 +656,7 @@
         },
         {
           "title": "Does it have to be a game?",
-          "text": "No. Your team can design a tool you'd want to use, such as one for a hobby, a job, or another class. Use the same three templates, and where a template asks about winning, losing, or levels, describe what the tool does instead. Tell me in your pitch at checkpoint 2 that you're making a tool."
+          "text": "No. Your team can design a tool you'd want to use, such as one for a hobby, a job, or another class. Download the tool version of GameDesign.docx under **What to submit**. It keeps the same file name and asks about the tool's user, inputs, and outputs. In GameData.xlsx, leave the **Levels** sheet empty if your tool has no levels. Tell me in your pitch at checkpoint 2 that you're making a tool."
         },
         {
           "title": "How does my team talk before we have a shared folder?",

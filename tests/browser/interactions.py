@@ -74,7 +74,8 @@ def run(page, check, engine):
     check("bullet" not in page.inner_text("#after").lower(), "no gallery text says bullet hell")
 
     # The templates are on this site.
-    check(page.locator("a[href*='GameDesign.docx']").count() == 1, "the Word template link is present")
+    check(page.locator("a[href*='templates/GameDesign.docx']").count() == 1, "the Word template link is present")
+    check(page.locator("a[href*='templates/tool/GameDesign.docx']").count() == 1, "the tool version of the Word template is linked (T13)")
     check(page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), "the page does not scroll sideways")
 
     # The printable editions (T9). The web page links the PDF and the single-file HTML, and both exist.
@@ -98,4 +99,4 @@ def run(page, check, engine):
     check(page.locator("script").count() == 0, "the single-file HTML has no script")
     check(page.inner_text("h1") == "Collaborative Game Design Project", "the single-file HTML shows the title")
     check(page.locator(".game img[src^='data:image/']").count() == 13, "its thirteen gallery pictures are inside the file")
-    check(page.locator(".downloads a[href^='data:']").count() == 4, "its four downloads are inside the file")
+    check(page.locator(".downloads a[href^='data:']").count() == 5, "its five downloads are inside the file")
