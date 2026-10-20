@@ -24,7 +24,7 @@ The untouched template. `../game-codesign-lab-journal/mockups/` holds the mockup
 
 ## The journal
 
-`../game-codesign-lab-journal/index.html`, also published to a private claude.ai page. Newest entry: the mockups.
+`../game-codesign-lab-journal/index.html`, also published privately at https://claude.ai/artifact/98FJQU85jomchGMSkfrJkb (republish from a copy without the document wrapper; see the scratchpad publish step). Newest entry: the mockups.
 
 ## Open for the person
 
