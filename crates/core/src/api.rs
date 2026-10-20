@@ -289,10 +289,10 @@ mod tests {
             vec![
                 "Mon, Oct 26",
                 "Mon, Nov 2",
+                "Mon, Nov 9",
                 "Mon, Nov 16",
                 "Mon, Nov 23",
                 "Nov 25–27",
-                "Mon, Nov 30",
                 "Mon, Dec 7",
                 "Thu, Dec 10"
             ]
@@ -300,7 +300,7 @@ mod tests {
         let status: Vec<&str> = rows.iter().map(|r| r["status"].as_str().unwrap()).collect();
         assert_eq!(
             status,
-            vec!["done", "done", "done", "next", "break", "upcoming", "upcoming", "upcoming"]
+            vec!["done", "done", "done", "done", "next", "break", "upcoming", "upcoming"]
         );
         assert_eq!(rows[0]["status_label"], "Closed");
         assert_eq!(rows[7]["status_label"], "Graded · 100 points");
@@ -323,9 +323,9 @@ mod tests {
         assert_eq!(
             got,
             vec![
-                ("GameDesign.docx", "Mon, Nov 16", "25"),
-                ("GameData.xlsx", "Mon, Nov 23", "20"),
-                ("GamePitch.pptx", "Mon, Nov 30", "20")
+                ("GameDesign.docx", "Mon, Nov 9", "25"),
+                ("GameData.xlsx", "Mon, Nov 16", "20"),
+                ("GamePitch.pptx", "Mon, Nov 23", "20")
             ]
         );
         assert_eq!(

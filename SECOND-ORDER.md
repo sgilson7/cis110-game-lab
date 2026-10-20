@@ -44,6 +44,9 @@ One row per assumption, surprise or open item. **Kind** is *divergence* (what wa
 | R2.23 | worklist | CCCC can host the site. | I don't know whether CCCC offers faculty web space. The site needs only static files and one setting (`.wasm` served as `application/wasm`). | Ask CCCC IT with the email in the journal's T9 entry. | | person |
 | R2.24 | worklist | The page's checkpoint lines match the syllabus. | Since T10, C1 and C2 differ from the syllabus calendar (page 23): the folder moved from 26 October to 2 November. | Update the syllabus calendar and any Blackboard copy of it, or tell students the assignment page is current. | | person |
 | R2.25 | worklist | Students can use Blackboard groups to talk. | Blackboard's help says students can message their group from the Groups page and that a discussion assigned to a group set is private to each group, but course messaging can be turned off per course. CCCC's setting is unknown. | Create the team discussion and send yourself a test group message from the student preview before 26 October. | | person |
+| R2.26 | worklist | The new prototype dates fit your time. | T11 commits you to building every team's game between 24 and 29 November and sending links by Monday 30 November, and to a final pass after 10 December. The page says "I plan to" for both. | Confirm both, or change `prototype.links_by` in `data/schedule.json`. Replaces R2.10's 3 December. | | person |
+| R2.27 | worklist | The page's dates match the syllabus. | Since T11, C3 to C5 are a week earlier than the syllabus calendar (9, 16 and 23 November, not 16, 23 and 30). | Update the syllabus calendar with R2.24's change. | | person |
+| R2.28 | divergence | Each file is drafted while students learn its app (R1.11). | The PowerPoint draft (23 November) now comes a week before the SAM PowerPoint modules (30 November). The Word draft follows the Word capstone, and the Excel draft coincides with Excel Module 3. | The intro now says the slides come first and need only basic slides and shapes. | | person |
 
 ## Strings written by the agent
 
@@ -55,3 +58,4 @@ Each reader-visible string the agent wrote, with its key, for the person to read
 | `GLOSSARY.md` | Six student-facing terms with `Not:` lines (GL-4). |
 | `edition` in `data/strings.json`, and the `<noscript>` line in `web/index.html` | "PDF version", "Offline copy (HTML)", the print edition's note on where the web page is, and "The PDF version has the same information." (T9). |
 | C1, C2, the flow cards, the setup lede and one FAQ in `data/strings.json`; `Team discussion` in `GLOSSARY.md` | Rewritten for T10: introductions and pitches in a Blackboard team discussion, the shared folder at C2. |
+| The second intro paragraph, C5 to C7, the break row, the prototype note and three flow cards in `data/strings.json` | Rewritten for T11: files in before Thanksgiving, a build over the break, feedback until the final deadline, and a final pass after it. |

@@ -30,3 +30,12 @@ The agent decided (T10):
 - The C1 and C2 lines on the page now differ from the syllabus PDF (R2.24).
 - GL-Q7 changes with it: pitches go in the team discussion, not one slide per member, and the team charter moves from C1 to C2.
 
+> i want all the project due dates for before thanksgiving, so i can build their games over thanksgiving and then give them the entire time after that to give me feedback for the final pass
+
+The agent decided (T11):
+
+- C3 (Word) moves to Monday 9 November, C4 (Excel) to Monday 16 November, and C5 (PowerPoint) to Monday 23 November, each a week earlier. Every file is in before the 25 to 27 November break. C1, C2, C6 and C7 keep their dates.
+- The prototype is built from the folder as of C5 over the break, and links go out by Monday 30 November (was 3 December).
+- Feedback runs from 30 November to the final deadline, 10 December. C6 (7 December) becomes a midpoint where each member has added at least one change request. The final pass on each game comes after 10 December, from the final folder.
+- This replaces R1.11's alignment for PowerPoint: the slides are now due a week before the SAM PowerPoint modules (30 November). Word still follows the Word modules, and Excel coincides with the Excel modules.
+

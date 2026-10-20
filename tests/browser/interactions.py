@@ -20,17 +20,18 @@ def run(page, check, engine):
     check(page.inner_text("#title") == "Collaborative Game Design Project", "the title is drawn")
     check(page.inner_text("#message") == "", "no error message is shown")
 
-    # 20 November 2026, a Friday: checkpoints 1-3 have passed; C4 (Mon 23 Nov) is next, 3 days away.
+    # 20 November 2026, a Friday. Since T11, C3 to C5 fall on 9, 16 and 23 November, so
+    # checkpoints 1-4 have passed and C5 (Mon 23 Nov, the last file before Thanksgiving) is next, 3 days away.
     ready(page, base + "?on=2026-11-20T10:00")
     check(page.inner_text("#next h2") == "Monday, November 23", "the next checkpoint on 20 Nov is Monday, November 23")
     check("Due in 3 days" in page.inner_text("#next"), "it is due in 3 days")
-    check(page.locator(".row[data-status='done']").count() == 3, "three checkpoints show as passed")
+    check(page.locator(".row[data-status='done']").count() == 4, "four checkpoints show as passed")
     check(page.locator(".row[data-status='next'] time").inner_text() == "Mon, Nov 23", "the schedule marks Nov 23 as next")
     check("Graded · 100 points" in page.inner_text(".row[data-graded='true']"), "the Dec 10 row says it is graded, 100 points")
 
     # The day of a deadline, before and after 5:00 PM Eastern.
     ready(page, base + "?on=2026-11-16T16:59")
-    check("Due today at 5:00 PM ET" in page.inner_text("#next"), "at 4:59 PM on Nov 16 the Word draft is due today")
+    check("Due today at 5:00 PM ET" in page.inner_text("#next"), "at 4:59 PM on Nov 16 the Excel draft is due today")
     ready(page, base + "?on=2026-11-16T17:00")
     check(page.inner_text("#next h2") == "Monday, November 23", "at 5:00 PM on Nov 16 the card moves to Nov 23")
 
@@ -43,10 +44,12 @@ def run(page, check, engine):
     check(stats == ["3–5", "3", "7", "100"], "the stat strip reads 3–5, 3, 7, 100")
     check(page.locator(".rb b").all_inner_texts() == ["20", "25", "20", "20", "15", "100"], "the rubric reads 20, 25, 20, 20, 15, total 100")
 
-    # File cards: Word draft Nov 16 (25 points), Excel Nov 23 (20), PowerPoint Nov 30 (20).
+    # File cards (T11): Word draft Nov 9 (25 points), Excel Nov 16 (20), PowerPoint Nov 23 (20), all before the Nov 25-27 break.
     feet = page.locator(".file-foot").all_inner_texts()
-    check("Mon, Nov 16" in feet[0] and "25" in feet[0], "the Word card says Mon, Nov 16 and 25 points")
-    check("Mon, Nov 30" in feet[2] and "20" in feet[2], "the PowerPoint card says Mon, Nov 30 and 20 points")
+    check("Mon, Nov 9" in feet[0] and "25" in feet[0], "the Word card says Mon, Nov 9 and 25 points")
+    check("Mon, Nov 16" in feet[1], "the Excel card says Mon, Nov 16")
+    check("Mon, Nov 23" in feet[2] and "20" in feet[2], "the PowerPoint card says Mon, Nov 23 and 20 points")
+    check("Monday, November 30" in page.inner_text(".callout"), "prototype links are planned for Monday, November 30")
 
     # Setup tabs go through the core: Microsoft 365 first, then the Google Drive backup.
     check(page.get_attribute("#tab-m365", "aria-selected") == "true", "the Microsoft 365 tab is open first")

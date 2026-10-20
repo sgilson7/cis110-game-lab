@@ -59,12 +59,17 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.23: ask CCCC IT whether it can host the site (email in the journal's T9 entry).
 - R2.24: update the syllabus calendar for C1 and C2, which moved the shared folder to 2 November (T10).
 - R2.25: create the team discussion and test a group message from the student preview before 26 October.
+- R2.26: confirm the Thanksgiving build (24 to 29 November), links by 30 November, and a final pass after 10 December (T11).
+- R2.27: update the syllabus calendar for C3 to C5 (9, 16 and 23 November).
+- R2.28: accept that the PowerPoint draft now comes before the SAM PowerPoint modules.
 
 ## Mistakes so far
 
 Page: three small decisions in the first `app.js` (R2.4), moved to the core. Copy: four sentences over 25 words and two unclear labels reached the first deploy (R2.13, R2.14); a test now holds the length. Dates: one wrong claim about SAM timing in the mockup (R1.11).
 
 ## What passed
+
+2026-10-20, T11: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with the dates worked by hand for 9, 16 and 23 November.
 
 2026-10-20, T10: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with new checks that C1 is the team discussion and C2 creates the folder. Deployed as 0f61654; the live browser check passed in all four profiles.
 

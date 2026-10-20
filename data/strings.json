@@ -90,7 +90,7 @@
     "eyebrow": "Capstone project · teams of {team_min} to {team_max}",
     "paragraphs": [
       "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files. I then turn your design into a game you can play in a web browser, using a game-making framework I built for my PhD.",
-      "The project runs alongside the SAM modules. You write each file while you're learning its app: the design document in Word, the game data in Excel, and the summary in PowerPoint."
+      "The project runs alongside the SAM modules. You write the design document after the Word modules and fill in the game data while you learn Excel. The slides come before the PowerPoint modules, and they need only basic slides and shapes."
     ],
     "note": "All deadlines are at {due_time}. Late work loses {late_percent}%."
   },
@@ -156,8 +156,8 @@
       ]
     },
     "C5": {
-      "summary": "Have a draft of the presentation in your folder.",
-      "detail": "Every slide in the presentation has a draft. After this deadline, I download your folder and start building a playable prototype of your game.",
+      "summary": "Have a draft of the presentation in your folder, so all three files are in.",
+      "detail": "Every slide in the presentation has a draft. After this deadline, I download your folder and build a playable prototype of your game over Thanksgiving break.",
       "todo": [
         "Draft every slide in `GamePitch.pptx`",
         "Draw a mock-up of one screen with shapes",
@@ -165,17 +165,17 @@
       ]
     },
     "C6": {
-      "summary": "Play your prototype and share your complete folder for feedback.",
-      "detail": "Play the prototype I send you, and write what should change in the **Changes** sheet. I reply to each request and leave comments in your files.",
+      "summary": "Play your prototype and add your change requests.",
+      "detail": "From {links_by}, play the prototype I send you and add what should change to the **Changes** sheet. Each member adds at least one request by this date. You can keep adding requests until {long:C7}.",
       "todo": [
         "Play your team's prototype",
-        "Add change requests to the **Changes** sheet",
-        "Read my comments in your files"
+        "Add at least one change request each to the **Changes** sheet",
+        "Read my replies and comments in your files"
       ]
     },
     "C7": {
       "summary": "Submit your final files, the folder link, and each member's contribution.",
-      "detail": "Submit the folder link in Blackboard with one sentence about what each member contributed. Then complete the private peer rating survey in Blackboard.",
+      "detail": "Submit the folder link in Blackboard with one sentence about what each member contributed. Then complete the private peer rating survey in Blackboard. After this deadline, I plan to make a final pass on your game using your change requests.",
       "todo": [
         "Make your final edits to all three files",
         "Submit the folder link in Blackboard with each member's contribution",
@@ -206,7 +206,7 @@
     "next": "Next",
     "upcoming": "Upcoming",
     "graded": "Graded · {total} points",
-    "break": "No checkpoints"
+    "break": "No checkpoints. I build your games over the break."
   },
   "sections": [
     {
@@ -295,7 +295,7 @@
       "lede": [
         "The project has {checkpoints} checkpoints. At each checkpoint before the last, I check your shared folder and leave comments in your files. I grade the folder once, after the final deadline on {long:C7}."
       ],
-      "note": "**Prototype round (ungraded).** By {links_by}, I plan to send each team a link to a playable version of its game. I build it from your folder as it was on {long:C5}. Your grade doesn't depend on the prototype."
+      "note": "**Prototype round (ungraded).** Every file is in by {long:C5}, before Thanksgiving break, and I build your game over the break. By {links_by}, I plan to send each team a link to a playable version. From then until {long:C7}, add change requests, and I plan to make a final pass on the game after that. Your grade doesn't depend on the prototype."
     },
     {
       "id": "how",
@@ -328,7 +328,7 @@
         {
           "owner": "me",
           "title": "Build a prototype",
-          "text": "I download your folder after {short:C5} and build a first playable version."
+          "text": "I download your folder after {short:C5} and build a first playable version over Thanksgiving break."
         },
         {
           "owner": "team",
@@ -338,7 +338,7 @@
         {
           "owner": "me",
           "title": "Give feedback",
-          "text": "I reply to your requests and comment in your files by {short:C6}."
+          "text": "I reply to your requests as they come in, until {short:C7}."
         },
         {
           "owner": "team",
@@ -347,8 +347,8 @@
         },
         {
           "owner": "me",
-          "title": "Post the game, with permission",
-          "text": "If everyone on your team agrees, I post your game to the class gallery."
+          "title": "Final pass and gallery",
+          "text": "After {short:C7}, I make a final pass on your game. If everyone on your team agrees, I post it to the class gallery."
         }
       ]
     },

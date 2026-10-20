@@ -15,17 +15,19 @@ fn schedule() -> Schedule {
     Schedule::parse(&fs::read_to_string(path).expect("read data/schedule.json")).expect("schedule parses")
 }
 
+/// Page 23's dates, except C3 to C5, which T11 moved a week earlier (from 16,
+/// 23 and 30 November) so that every file is in before Thanksgiving.
 #[test]
-fn the_seven_project_deadlines_match_page_23() {
+fn the_seven_project_deadlines_match_page_23_with_t11() {
     let dates: Vec<String> = schedule().checkpoints.iter().map(|c| c.date.clone()).collect();
     assert_eq!(
         dates,
         vec![
             "2026-10-26",
             "2026-11-02",
+            "2026-11-09",
             "2026-11-16",
             "2026-11-23",
-            "2026-11-30",
             "2026-12-07",
             "2026-12-10"
         ]

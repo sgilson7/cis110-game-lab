@@ -1,5 +1,5 @@
 {
-  "_source": "CIS110_LN182_Fall2026_Second8Weeks_Final_SimpleSyllabus.pdf, page 9 (project) and page 23 (calendar and rubric). Change a value here only when the syllabus changes; crates/core/tests/syllabus.rs pins each one. Since T10 (2026-10-20), the C1 and C2 descriptions differ from the syllabus: the shared folder moved from C1 to C2, and teams talk in a Blackboard team discussion first. The dates are unchanged.",
+  "_source": "CIS110_LN182_Fall2026_Second8Weeks_Final_SimpleSyllabus.pdf, page 9 (project) and page 23 (calendar and rubric). Change a value here only when the syllabus changes; crates/core/tests/syllabus.rs pins each one. Since T10 (2026-10-20), the C1 and C2 descriptions differ from the syllabus: the shared folder moved from C1 to C2, and teams talk in a Blackboard team discussion first. The dates were unchanged by T10. Since T11 (2026-10-20), C3 to C5 are a week earlier than the syllabus (9, 16 and 23 November), so every file is in before Thanksgiving and the prototype is built over the break.",
   "zone": "ET",
   "due_hour": 17,
   "due_minute": 0,
@@ -14,9 +14,9 @@
   "checkpoints": [
     { "id": "C1", "date": "2026-10-26", "phase": "Team up", "syllabus": "Teams of {team_min} to {team_max} formed in Blackboard; introductions posted" },
     { "id": "C2", "date": "2026-11-02", "phase": "Pitch and set up", "syllabus": "Game concept chosen; roles assigned; shared folder created" },
-    { "id": "C3", "date": "2026-11-16", "phase": "Write", "syllabus": "Word game design document draft in shared folder" },
-    { "id": "C4", "date": "2026-11-23", "phase": "Data", "syllabus": "Excel game data workbook draft in shared folder" },
-    { "id": "C5", "date": "2026-11-30", "phase": "Present", "syllabus": "PowerPoint design summary draft in shared folder" },
+    { "id": "C3", "date": "2026-11-09", "phase": "Write", "syllabus": "Word game design document draft in shared folder" },
+    { "id": "C4", "date": "2026-11-16", "phase": "Data", "syllabus": "Excel game data workbook draft in shared folder" },
+    { "id": "C5", "date": "2026-11-23", "phase": "Present", "syllabus": "PowerPoint design summary draft in shared folder" },
     { "id": "C6", "date": "2026-12-07", "phase": "Review", "syllabus": "Complete folder shared for instructor feedback" },
     { "id": "C7", "date": "2026-12-10", "phase": "Submit", "syllabus": "Final Word, PowerPoint, and Excel files, folder link, and contributions due", "graded": true }
   ],
@@ -35,5 +35,5 @@
     { "id": "ppt", "due": "C5", "rubric": "ppt" },
     { "id": "excel", "due": "C4", "rubric": "excel" }
   ],
-  "prototype": { "built_from": "C5", "links_by": "2026-12-03", "requests_by": "C6" }
+  "prototype": { "built_from": "C5", "links_by": "2026-11-30", "requests_by": "C7" }
 }
