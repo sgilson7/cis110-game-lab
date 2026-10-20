@@ -1,0 +1,5 @@
+{
+  "_note": "How the page reads its own clock: local time in the course's time zone, written YYYY-MM-DD HH:MM:SS (the sv-SE format), which the core parses.",
+  "locale": "sv-SE",
+  "zone": "America/New_York"
+}

@@ -6,4 +6,8 @@ Compare at least one result with a case worked out by hand. **Severity** is *blo
 
 | # | Request, in the person's words | Expected | What happened | Severity | Cost | Disposition |
 | --- | --- | --- | --- | --- | --- | --- |
-| T1 | | | | | | |
+| T1 | "go with all defaults" | The recommendation in each of GL-Q1 to GL-Q9 is built. | Answered 2026-10-19. | wanted | small | done |
+| T2 | "the merry querry big headers are nice but a bit much and stylized for a lesson at a community college, try and make it a little more toned down and html'y … i kind of want it looking like the ape race design log or the pdf signature adder log, like a mixture of those with the merry query look" | The live page uses the journals' plain layout (system fonts, dated rail, bordered panels) with MerryQuery's eyebrows, stat strip and file cards, and no large display serif. | | wanted | medium | open |
+| T3 | "add a tab on those updates" | A journal page on the Builder additions (GL-Q6). | | wanted | small | open |
+| T4 | "then deploy to live" | The homepage is public on GitHub Pages and passes the browser check at the live address. | | wanted | medium | open |
+| T5 | "then rebuild log with mockup vs real deploy comparison, and analyze where the mockup and the live version diverge, with an emphasis on making the human facing text read like a human, in the style of google open source documentation and professional google blog tone" | A journal entry pairing each mockup section with the live one, a divergence table, and a copy review against Google's developer documentation style. | | wanted | medium | open |

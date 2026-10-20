@@ -57,4 +57,14 @@ Filler:
 Exclamation:
 
 - !
+Google developer documentation style (this project, T5):
+
+- please
+- click here
+- e.g.
+- i.e.
+- easy
+- easily
+- obviously
+- in order to
 <!-- lint:end -->

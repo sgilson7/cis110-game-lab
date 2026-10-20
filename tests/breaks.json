@@ -1,16 +1,79 @@
 [
   {
-    "name": "an empty title is refused",
-    "file": "crates/core/src/page.rs",
-    "find": "if strings.title.trim().is_empty() {",
-    "replace": "if false {",
-    "test": "an_empty_title_is_rejected_by_name"
+    "name": "a checkpoint closes at its due minute",
+    "file": "crates/core/src/schedule.rs",
+    "find": "self.checkpoints.iter().position(|c| now < self.closes(c))",
+    "replace": "self.checkpoints.iter().position(|c| now <= self.closes(c))",
+    "test": "a_checkpoint_stays_open_until_five_pm_on_its_day"
   },
   {
-    "name": "an unknown action is refused",
+    "name": "the graded checkpoint must be last",
+    "file": "crates/core/src/schedule.rs",
+    "find": "if graded.len() != 1 || !self.checkpoints.last().is_some_and(|c| c.graded) {",
+    "replace": "if graded.is_empty() && false {",
+    "test": "the_graded_checkpoint_must_be_the_last_and_only_one"
+  },
+  {
+    "name": "days are calendar days",
+    "file": "crates/core/src/schedule.rs",
+    "find": "parse_day(&c.date).unwrap_or(0) - now.div_euclid(DAY_MINUTES)",
+    "replace": "(parse_day(&c.date).unwrap_or(0) * DAY_MINUTES - now) / DAY_MINUTES",
+    "test": "days_until_counts_calendar_days_not_hours"
+  },
+  {
+    "name": "the rest excludes the files' parts",
+    "file": "crates/core/src/schedule.rs",
+    "find": ".filter(|r| !self.files.iter().any(|f| f.rubric == r.id))",
+    "replace": ".filter(|_| true)",
+    "test": "totals_come_from_the_rubric"
+  },
+  {
+    "name": "an unknown placeholder is refused",
+    "file": "crates/core/src/text.rs",
+    "find": ".ok_or_else(|| format!(\"The text \\\"{text}\\\" names {{{name}}}, which the core does not fill.\"))?;",
+    "replace": ".unwrap_or(\"\");",
+    "test": "an_unknown_placeholder_is_refused_by_name"
+  },
+  {
+    "name": "tomorrow reads tomorrow",
+    "file": "crates/core/src/view.rs",
+    "find": "        1 => &t.due_tomorrow,\n",
+    "replace": "",
+    "test": "the_day_before_and_the_day_of_read_tomorrow_and_today"
+  },
+  {
+    "name": "the address override wins",
     "file": "crates/core/src/api.rs",
-    "find": "other => return Err(format!(\"Unknown action \\\"{other}\\\".\")),",
-    "replace": "_ => {}",
-    "test": "act_refuses_an_unknown_action"
+    "find": "Ok(m) if !on.trim().is_empty() => Ok(m),",
+    "replace": "Ok(m) if false => Ok(m),",
+    "test": "the_address_override_wins_over_the_clock_and_a_bad_one_is_ignored"
+  },
+  {
+    "name": "an unknown setup tab is refused",
+    "file": "crates/core/src/api.rs",
+    "find": "return Err(format!(\"There is no setup tab \\\"{value}\\\".\"));",
+    "replace": "{}",
+    "test": "act_refuses_an_unknown_action_and_tab_by_name"
+  },
+  {
+    "name": "the break sits before the next checkpoint",
+    "file": "crates/core/src/view.rs",
+    "find": "let before = i == 0 || parse_day(&s.checkpoints[i - 1].date)? < *from;",
+    "replace": "let before = true;",
+    "test": "the_schedule_has_seven_checkpoints_and_the_break_in_date_order"
+  },
+  {
+    "name": "weekdays start on Monday",
+    "file": "crates/core/src/dates.rs",
+    "find": "(days + 3).rem_euclid(7) as usize",
+    "replace": "(days + 4).rem_euclid(7) as usize",
+    "test": "the_syllabus_mondays_are_mondays"
+  },
+  {
+    "name": "hints are filled",
+    "file": "crates/core/src/api.rs",
+    "find": "definition: fill(&h.definition, &v)?,",
+    "replace": "definition: h.definition.clone(),",
+    "test": "hover_hints_have_their_numbers_filled_by_the_core"
   }
 ]

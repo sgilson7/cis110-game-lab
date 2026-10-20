@@ -31,7 +31,18 @@
 
 ## Rules agreed for this project
 
-None yet. When the person answers the opening entry's questions, add each rule that applies to every later session here, with its journal ID.
+Agreed 2026-10-19 (T1, journal entry `agreed`). The reasons are in the journal's opening entry.
+
+- GL-1: every date, time and point value comes from the syllabus through `data/schedule.json`; `crates/core/tests/syllabus.rs` pins each one by hand.
+- GL-2: the core decides which checkpoint is next from a date and time the page passes in; the page does no date arithmetic.
+- GL-3: Microsoft 365 is the path in every instruction; Google Drive appears only in the fallback tab.
+- GL-4: student-facing words follow `TONE.md` and the glossary; Builder's internal words do not reach the student page (`Not:` lines).
+- GL-5: no student name, email or grade in this repository or the built page.
+- GL-6: the page loads nothing from another origin; it uses system fonts.
+- GL-7: the page promises nothing outside the instructor's control.
+- GL-9: changes to Builder itself follow the reference repository's rules.
+- GL-10: publish only to `sgilson7/cis110-game-lab` (BRIEF.md Autonomy).
+- Copy follows Google's developer documentation style: second person, active voice, present tense, sentence-case headings, conditions before instructions, bold for interface names (T5).
 
 ## Stopping
 

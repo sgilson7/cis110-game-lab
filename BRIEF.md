@@ -52,7 +52,7 @@ Terms from the assignment: *team*, *shared folder*, *game design document*, *che
 
 ## Autonomy
 
-The plan is not approved in advance. The agent writes the journal's opening entry, the literature review and the mockups, then stops for the person's answers. The agent may not loosen a Builder requirement or a boundary test, and may not add a server, an account, analytics or any off-origin request. The agent may publish the design journal to a private claude.ai page. Publishing anything public waits for an explicit grant naming the repository.
+Until 2026-10-19 the plan was not approved in advance. On 2026-10-19 the person answered "go with all defaults … then deploy to live" (T1, T4): the plan is approved in advance from then on, and the agent may create the public repository `sgilson7/cis110-game-lab` and publish it to GitHub Pages with `./scripts/publish.sh` once `./scripts/check.sh` passes. The agent may not loosen a Builder requirement or a boundary test, and may not add a server, an account, analytics or any off-origin request. The agent may publish the design journal to a private claude.ai page. Publishing anywhere else waits for an explicit grant naming the repository.
 
 ## Journal
 

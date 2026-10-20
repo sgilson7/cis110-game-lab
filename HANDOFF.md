@@ -33,6 +33,11 @@ The untouched template. `../game-codesign-lab-journal/mockups/` holds the mockup
 - R1.5: confirm the MerryQuery site address the mockups follow (GL-Q3).
 - R1.6: confirm how much of the course grade the project carries before the page states a percentage.
 - R1.8: approve fixed template files and names for the three deliverables (GL-Q4).
+- R2.7: walk through the Microsoft 365 steps once with a CCCC student account.
+- R2.8: read the role names, FAQ, to-do lists and example games the agent wrote.
+- R2.9: confirm the instructor email may appear on the public page.
+- R2.10: confirm the prototype date, Thursday, December 3.
+- R2.12: confirm with Peter that Ape Race may appear in the gallery.
 
 ## Mistakes so far
 

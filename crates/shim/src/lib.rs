@@ -8,8 +8,8 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn start(strings_json: &str, glossary_md: &str) -> String {
-    tool_core::api::start(strings_json, glossary_md)
+pub fn start(strings_json: &str, schedule_json: &str, glossary_md: &str, clock: &str, on: &str) -> String {
+    tool_core::api::start(strings_json, schedule_json, glossary_md, clock, on)
 }
 
 #[wasm_bindgen]
