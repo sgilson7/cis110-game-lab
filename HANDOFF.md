@@ -66,7 +66,7 @@ Page: three small decisions in the first `app.js` (R2.4), moved to the core. Cop
 
 ## What passed
 
-2026-10-20, T10: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with new checks that C1 is the team discussion and C2 creates the folder.
+2026-10-20, T10: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with new checks that C1 is the team discussion and C2 creates the folder. Deployed as 0f61654; the live browser check passed in all four profiles.
 
 2026-10-20, T9: `./scripts/check.sh` passed (10 steps, including the export); core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox, WebKit and an iPhone profile. The single-file HTML opened from disk in all three engines with no request outside the file. Deployed as 53c528a; the live browser check passed in all four profiles.
 
