@@ -514,7 +514,8 @@
       "eyebrow": "After you submit",
       "heading": "What happens to your game",
       "lede": [
-        "Games built with this framework run in any modern web browser, with nothing to install. If everyone on your team agrees, I post your game to a public class gallery, which you can link from a résumé or portfolio."
+        "Games built with this framework run in any modern web browser, with nothing to install. If everyone on your team agrees, I post your game to a public class gallery, which you can link from a résumé or portfolio.",
+        "Your team can also design a tool instead of a game: something you'd want for a hobby, a job, or another class. The last three examples below are tools built with the same framework."
       ],
       "items": [
         {
@@ -609,6 +610,27 @@
           "href": "https://sgilson7.github.io/packet-alley/",
           "image": "data/img/games/packet-alley.jpg",
           "alt": "A Packet Alley level with a small network map"
+        },
+        {
+          "title": "PDF Redactor",
+          "text": "Find names and other identifiers in a PDF, review the redaction boxes, and save a clean copy",
+          "href": "https://sgilson7.github.io/pdf-redactor/",
+          "image": "data/img/games/pdf-redactor.jpg",
+          "alt": "The PDF Redactor start screen"
+        },
+        {
+          "title": "PDF Signature Adder",
+          "text": "Sign a PDF with a drawn or pasted signature, without uploading it anywhere",
+          "href": "https://sgilson7.github.io/pdf-signature-adder/",
+          "image": "data/img/games/pdf-signature-adder.jpg",
+          "alt": "The PDF Signature Adder start screen"
+        },
+        {
+          "title": "MP4 to Transcript",
+          "text": "Turn a recording into a transcript laid out like Zoom's, in your browser",
+          "href": "https://sgilson7.github.io/mp4-to-transcript/",
+          "image": "data/img/games/mp4-to-transcript.jpg",
+          "alt": "The MP4 to Transcript start screen"
         }
       ]
     },
@@ -626,6 +648,10 @@
         {
           "title": "How big should our game be?",
           "text": "Aim for a game that someone can learn in a minute and finish in about five. One screen and one clear goal is a good place to start."
+        },
+        {
+          "title": "Does it have to be a game?",
+          "text": "No. Your team can design a tool you'd want to use, such as one for a hobby, a job, or another class. Use the same three templates, and where a template asks about winning, losing, or levels, describe what the tool does instead. Tell me in your pitch at checkpoint 2 that you're making a tool."
         },
         {
           "title": "How does my team talk before we have a shared folder?",

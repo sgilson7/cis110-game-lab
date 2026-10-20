@@ -62,6 +62,7 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.26: confirm the Thanksgiving build (24 to 29 November), links by 30 November, and a final pass after 10 December (T11).
 - R2.27: update the syllabus calendar for C3 to C5 (9, 16 and 23 November).
 - R2.28: accept that the PowerPoint draft now comes before the SAM PowerPoint modules.
+- R2.29: read the FAQ answer for teams that design a tool; the templates are still written for a game.
 
 ## Mistakes so far
 

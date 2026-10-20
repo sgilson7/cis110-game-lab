@@ -65,8 +65,11 @@ def run(page, check, engine):
     check("team discussion" in c1 and "folder created" not in c1 and "Create the shared folder" not in c1, "checkpoint 1 is the team discussion, with no folder yet")
     check("shared folder created" in c2 and "Pitch and set up" in c2, "checkpoint 2 creates the shared folder")
 
-    # The gallery: ten example games, described for a public, student audience (T6).
-    check(page.locator(".game").count() == 10, "the gallery shows ten example games")
+    # The gallery: ten example games and three tools, described for a public,
+    # student audience (T6, T7, T12).
+    check(page.locator(".game").count() == 13, "the gallery shows ten games and three tools")
+    check("design a tool instead of a game" in page.inner_text("#after"), "the page says a team can design a tool")
+    check(page.locator("#faq summary", has_text="Does it have to be a game?").count() == 1, "the FAQ answers whether it has to be a game")
     check("third-person action survival game" in page.inner_text("#after"), "Long Time Comin' is described as an action survival game")
     check("bullet" not in page.inner_text("#after").lower(), "no gallery text says bullet hell")
 
@@ -87,12 +90,12 @@ def run(page, check, engine):
     check(page.locator("#next").is_hidden(), "the print edition has no next-checkpoint card")
     check(page.locator(".row[data-status='done'], .row[data-status='next']").count() == 0, "no checkpoint is marked passed or next")
     check(page.locator("[role='tabpanel']").count() == 2 and page.locator("ol.steps li").count() == 12, "both setup tabs are shown, 8 and 4 steps")
-    check(page.locator("details[open]").count() == 8, "all eight FAQ answers are open")
+    check(page.locator("details[open]").count() == 9, "all nine FAQ answers are open")
     check("sgilson7.github.io/cis110-game-lab" in page.inner_text("#edition-note"), "the print edition says where the web page is")
 
     # The single-file HTML: no script, and every picture and template inside the file.
     page.goto(base.rsplit("/", 1)[0] + "/cis110-game-project.html")
     check(page.locator("script").count() == 0, "the single-file HTML has no script")
     check(page.inner_text("h1") == "Collaborative Game Design Project", "the single-file HTML shows the title")
-    check(page.locator(".game img[src^='data:image/']").count() == 10, "its ten gallery pictures are inside the file")
+    check(page.locator(".game img[src^='data:image/']").count() == 13, "its thirteen gallery pictures are inside the file")
     check(page.locator(".downloads a[href^='data:']").count() == 4, "its four downloads are inside the file")

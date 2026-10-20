@@ -426,7 +426,7 @@ mod tests {
         assert_eq!(tabs[0]["heading"], "Microsoft 365");
         assert_eq!(tabs[1]["heading"], "Google Drive (backup option)");
         let faq = section(&v, "faq")["items"].as_array().unwrap();
-        assert_eq!(faq.len(), 8);
+        assert_eq!(faq.len(), 9);
         assert!(faq.iter().all(|q| q["open"] == true));
     }
 
