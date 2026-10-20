@@ -4,23 +4,35 @@ Stage 9, written by the agent. `C5 Consolidate in your own words`. A fresh sessi
 
 ## What this is
 
-The assignment homepage for the CIS 110 LN182 Collaborative Game Design Project, and later a Builder path that turns a team's Office files into a game. As of 2026-10-19 nothing is built: the template is copied, `BRIEF.md` holds the request, and the design journal holds the opening entry, a literature review and mockups. The work is stopped at stage 0, waiting on the person's answers to GL-Q1 to GL-Q9.
+The assignment page for the CIS 110 LN182 Collaborative Game Design Project, live at https://sgilson7.github.io/cis110-game-lab/ from the public repository sgilson7/cis110-game-lab. It shows what teams submit, the seven checkpoints with the next one computed for today, Microsoft 365 setup with a Google Drive backup, roles, grading and what happens to the game. The Builder additions for student submissions are PR sgilson7/builder-setting#1, not merged.
 
 ## Rules that hold it up
 
-Builder's template rules, unchanged. Project rules are proposed in the journal's opening entry (GL-1 to GL-9) and are not yet agreed.
+| Rule | Guard |
+| --- | --- |
+| Dates, times, limits and points match the syllabus (GL-1) | `crates/core/tests/syllabus.rs` |
+| The next checkpoint changes at 5:00 PM ET on its day (GL-2) | `schedule.rs` and `api.rs` tests; browser interactions with `?on=` |
+| Every sentence under 25 words (TONE.md rule 2) | `crates/core/tests/sentences.rs` |
+| Builder's words stay off the page (GL-4) | `GLOSSARY.md` `Not:` lines, `copy.rs` |
+| The page holds no number and loads nothing from elsewhere (D3, GL-6) | `boundary.rs`, browser check |
 
 ## Shape of the code
 
-The untouched template. `../game-codesign-lab-journal/mockups/` holds the mockup page and `schedule.json`, the syllabus dates the diagrams are drawn from.
+| What | Where |
+| --- | --- |
+| Syllabus values | `data/schedule.json` |
+| Every word on the page | `data/strings.json`, `GLOSSARY.md` |
+| Templates and screenshots | `data/templates/`, `data/img/games/` |
+| Dates, schedule, placeholders, view model | `crates/core/src/{dates,schedule,text,view,api}.rs` |
+| Drawing | `web/app.js`, `web/style.css` |
 
 ## Commands
 
-`./scripts/check.sh` (steps 1-8 pass; step 9 needs `./scripts/setup.sh` first, R1.1).
+`./scripts/check.sh` (needs Playwright; this machine used `/Users/samgilson/Documents/LevelTwenty/.venv/bin` on `PATH`); `./scripts/publish.sh` from a clean tree; then `BUILDER_ORIGIN=https://sgilson7.github.io/cis110-game-lab python3 tests/browser/check.py`. Preview another date with `?on=2026-11-20T10:00`.
 
 ## What will bite within the hour
 
-`../builder-setting/` has no `.git` (R1.3). The syllabus is the source for every date and point value; the mockup copies them by hand and nothing yet tests them.
+Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `cargo fmt` rewraps lines that `tests/breaks.json` rows match; rerun `scripts/break_tests.py` after formatting. `publish.sh` needs `user.name` and `user.email` in this repository's git config.
 
 ## The journal
 
@@ -41,12 +53,12 @@ The untouched template. `../game-codesign-lab-journal/mockups/` holds the mockup
 
 ## Mistakes so far
 
-None in code yet.
+Page: three small decisions in the first `app.js` (R2.4), moved to the core. Copy: four sentences over 25 words and two unclear labels reached the first deploy (R2.13, R2.14); a test now holds the length. Dates: one wrong claim about SAM timing in the mockup (R1.11).
 
 ## What passed
 
-2026-10-19, untouched template: `./scripts/check.sh` steps 1-8 passed, step 9 stopped (no Playwright); `./scripts/count-tests.sh`: 38 passed, 0 failed.
+2026-10-19, commit 1219e20: `./scripts/check.sh` passed; core tests 71 passed; breaks 13 of 13 caught; browser check passed locally and at the live address in Chromium, Firefox, WebKit and an iPhone profile (117 checks each run).
 
 ## The next action
 
-Read the journal's opening entry and answer GL-Q1 to GL-Q9 by number.
+Walk through the Microsoft 365 setup steps with a CCCC student account (R2.7), then link the page from Blackboard.
