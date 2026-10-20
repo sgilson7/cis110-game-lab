@@ -71,6 +71,8 @@ Page: three small decisions in the first `app.js` (R2.4), moved to the core. Cop
 
 ## What passed
 
+2026-10-20, T13: `./scripts/check.sh` passed; browser check passed locally in Chromium, Firefox and WebKit. Builder: kit tests 16 passed, prove-checks caught 45 of 45, reference check passed (commit 4b5a802 on PR #1). Deployed as c8441ae; the live browser check passed in all four profiles; the live tool template matches the kit's byte for byte.
+
 2026-10-20, T12: `./scripts/check.sh` passed; core tests 76 passed; browser check passed locally in Chromium, Firefox and WebKit, with new checks for thirteen examples, the tool paragraph and the FAQ. Deployed as 1dd2d13; the live browser check passed in all four profiles, and the live PDF has the new text.
 
 2026-10-20, T11: `./scripts/check.sh` passed; core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox and WebKit, with the dates worked by hand for 9, 16 and 23 November. Deployed as 93cd366; the live browser check passed in all four profiles.
