@@ -28,7 +28,7 @@ The assignment page for the CIS 110 LN182 Collaborative Game Design Project, liv
 
 ## Commands
 
-`./scripts/check.sh` (needs Playwright; this machine used `/Users/samgilson/Documents/LevelTwenty/.venv/bin` on `PATH`); `./scripts/publish.sh` from a clean tree; then `BUILDER_ORIGIN=https://sgilson7.github.io/cis110-game-lab python3 tests/browser/check.py`. Preview another date with `?on=2026-11-20T10:00`.
+`./scripts/check.sh` (needs Playwright; this machine used `/Users/samgilson/Documents/LevelTwenty/.venv/bin` on `PATH`); `./scripts/publish.sh` from a clean tree; then `BUILDER_ORIGIN=https://sgilson7.github.io/cis110-game-lab python3 tests/browser/check.py`. Preview another date with `?on=2026-11-20T10:00`. `?edition=print` shows the print edition; `scripts/export.py` (step 5 of the check) turns it into `dist/cis110-game-project.pdf` and `dist/cis110-game-project.html`.
 
 ## What will bite within the hour
 
@@ -55,12 +55,16 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.17: merge Builder PR #1 before the 30 November build, or point the build prompt at its branch.
 - R2.18: choose Google Forms or Microsoft Forms for answers that hold grades (GL-Q10).
 - R2.19: decide whether a prototype link counts as "posting" a game, and where the peer rating lives (GL-Q11, GL-Q12).
+- R2.20: upload the PDF and the single-file HTML to Blackboard and check them in the student preview.
+- R2.23: ask CCCC IT whether it can host the site (email in the journal's T9 entry).
 
 ## Mistakes so far
 
 Page: three small decisions in the first `app.js` (R2.4), moved to the core. Copy: four sentences over 25 words and two unclear labels reached the first deploy (R2.13, R2.14); a test now holds the length. Dates: one wrong claim about SAM timing in the mockup (R1.11).
 
 ## What passed
+
+2026-10-20, T9: `./scripts/check.sh` passed (10 steps, including the export); core tests 76 passed; breaks 20 of 20 caught; browser check passed locally in Chromium, Firefox, WebKit and an iPhone profile. The single-file HTML opened from disk in all three engines with no request outside the file.
 
 2026-10-19, commit 1219e20: `./scripts/check.sh` passed; core tests 71 passed; breaks 13 of 13 caught; browser check passed locally and at the live address in Chromium, Firefox, WebKit and an iPhone profile (117 checks each run).
 

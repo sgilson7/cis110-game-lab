@@ -227,4 +227,39 @@ footer p { margin: 0; }
   ol.cards, .roles, .gallery { grid-template-columns: minmax(0, 1fr); }
   .sec { padding-block: 24px; }
 }
+/* Editions: links to the printable files on the web page; the print edition
+   (?edition=print, the source of the PDF and the single-file HTML) shows every
+   setup tab under its own heading instead of tab buttons. */
+.editions { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14.5px; }
+.editions:empty, #edition-note:empty { display: none; }
+.panels { display: grid; gap: 18px; }
+.tab-heading { margin: 0 0 10px; font-size: 18px; }
+body[data-edition="print"] .tabs { display: none; }
+body[data-edition="print"] .hero { grid-template-columns: minmax(0, 1fr); }
+
+@media print {
+  :root:not(#print) {
+    --bg: #ffffff; --panel: #ffffff; --fg: #1e2a2f; --muted: #4d575c; --line: #c9cfc7;
+    --accent: #2b62a0; --accent-soft: #e6edf6; --mark: #b8452f; --you: #f1dc8a; --you-line: #c9a93a;
+    --band: #f1f2ee; --word: #2b579a; --excel: #217346; --ppt: #b7472a; --on-color: #ffffff;
+    color-scheme: light;
+  }
+  body { font-size: 11pt; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .top, .sec-rail { position: static; }
+  .skip, .tabs, .editions { display: none; }
+  .sec h2, .tab-heading, .figure-label { break-after: avoid; }
+  .panel, .row, ol.steps li, details, .game, .callout, .stat, dl.rules div { break-inside: avoid; }
+  .sec.band { box-shadow: none; clip-path: none; }
+  /* Chromium lays out a grid that breaks across pages badly (rows overlap), so
+     the containers that span pages become blocks spaced with margins. */
+  .hero, .hero-text, .sec, .sec-body, .files, .rows, .setup, .panels, .after, .faq, dl.rules, #intro { display: block; }
+  .sec { padding: 18px 0; }
+  .sec-rail .eyebrow { margin-bottom: 4px; }
+  .sec-rail, .sec-rail .eyebrow { break-after: avoid; page-break-after: avoid; }
+  #intro > p + p { margin-top: 10px; }
+  .hero-text > * + *, .sec-body > * + *, .files > * + *, .panels > * + *,
+  .setup > * + *, .after > * + *, dl.rules > * + * { margin-top: 12px; }
+  .hero { padding-block: 12px; }
+  .stats { margin-top: 16px; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }

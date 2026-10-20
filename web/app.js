@@ -49,6 +49,8 @@ function mark(node) {
 
 function drawNext(next) {
   const box = el("next");
+  box.hidden = !next;
+  if (!next) return;
   const head = make("div", { class: "next-head" }, make("span", { text: next.label }), make("span", { text: next.progress }));
   const body = make("div", { class: "next-body" });
   if (next.when) body.append(make("span", { class: "next-when", text: next.when }));
@@ -85,17 +87,17 @@ function scheduleRow(item) {
 
 function setupBlock(sec) {
   const tabs = make("div", { class: "tabs", role: "tablist", "aria-label": sec.heading });
-  let open = null;
   sec.tabs.forEach((t) => {
     const b = make("button", { id: `tab-${t.id}`, role: "tab", type: "button", "aria-selected": String(t.selected), text: t.label });
     b.addEventListener("click", () => draw(call(act, JSON.stringify(state), glossary, "setup.show", t.id), b.id));
     tabs.append(b);
-    if (t.selected) open = t;
   });
-  const steps = make("ol", { class: "steps" }, open.items.map((i) =>
-    make("li", {}, make("div", {}, make("b", { class: "step" }, segs(i.title)), para(i.text)))));
-  const panel = make("div", { role: "tabpanel", "aria-labelledby": `tab-${open.id}` },
-    open.lede.length ? para(open.lede, { class: "tab-lede" }) : null, steps);
+  // One panel per open tab: one on the web page, every tab in the print edition.
+  const panels = sec.tabs.filter((t) => t.selected).map((open) => make("div", { role: "tabpanel", "aria-labelledby": `tab-${open.id}` },
+    open.heading ? make("h3", { class: "tab-heading", text: open.heading }) : null,
+    open.lede.length ? para(open.lede, { class: "tab-lede" }) : null,
+    make("ol", { class: "steps" }, open.items.map((i) =>
+      make("li", {}, make("div", {}, make("b", { class: "step" }, segs(i.title)), para(i.text)))))));
   const f = sec.figure;
   const figure = f ? make("div", {},
     make("p", { class: "figure-label", text: f.label }),
@@ -105,7 +107,7 @@ function setupBlock(sec) {
         make("div", {}, make("span", { class: "sq" }), make("b", { text: f.folder })),
         f.files.map((file) => make("div", {}, make("span", { class: "sq", "data-kind": file.kind }), make("span", { text: file.name })))),
       make("div", { class: "sharing" }, f.sharing.map((s) => make("div", {}, make("b", { text: s.who }), make("span", { text: s.access })))))) : null;
-  return make("div", { class: "setup" }, make("div", {}, tabs, panel), figure);
+  return make("div", { class: "setup" }, make("div", { class: "panels" }, tabs, panels), figure);
 }
 
 function body(sec) {
@@ -140,7 +142,7 @@ function body(sec) {
             make("a", { class: "game panel", href: g.href, rel: "noopener" }, make("img", { src: g.image, alt: g.alt, loading: "lazy" }),
               make("span", {}, make("b", {}, segs(g.title)), make("small", {}, segs(g.text))))))))];
     case "faq":
-      return [make("div", { class: "faq" }, sec.items.map((i) => make("details", {}, make("summary", {}, segs(i.title)), para(i.text))))];
+      return [make("div", { class: "faq" }, sec.items.map((i) => make("details", i.open ? { open: "" } : {}, make("summary", {}, segs(i.title)), para(i.text))))];
     default:
       return [];
   }
@@ -174,6 +176,9 @@ function draw(result, focus) {
   el("title").textContent = page.title;
   el("intro").replaceChildren(...page.intro.paragraphs.map((p) => para(p)));
   el("intro-note").replaceChildren(...segs(page.intro.note));
+  el("editions").replaceChildren(...page.intro.links.map((l) => make("a", { href: l.href, text: l.label })));
+  el("edition-note").replaceChildren(...segs(page.intro.edition_note));
+  document.body.dataset.edition = page.edition;
   drawNext(page.next);
   el("stats").replaceChildren(...page.stats.map((s) => make("div", { class: "stat" }, make("b", { text: s.value }), make("span", { text: s.label }))));
   el("sections").replaceChildren(...page.sections.map(section));
@@ -191,8 +196,8 @@ async function main() {
   const clock = JSON.parse(await (await fetch("data/clock.json")).text());
   glossary = await (await fetch("data/glossary.md")).text();
   const now = new Date().toLocaleString(clock.locale, { timeZone: clock.zone });
-  const on = new URLSearchParams(location.search).get("on") || "";
-  draw(call(start, strings, schedule, glossary, now, on));
+  const params = new URLSearchParams(location.search);
+  draw(call(start, strings, schedule, glossary, now, params.get("on") || "", params.get("edition") || ""));
   if (location.hash) el(location.hash.slice(1))?.scrollIntoView();
   document.body.dataset.ready = "true";
 }

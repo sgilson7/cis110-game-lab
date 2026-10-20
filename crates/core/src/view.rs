@@ -37,6 +37,17 @@ pub struct Intro {
     pub note: String,
 }
 
+/// The words for the page's two editions: the web page, which links to the
+/// printable files, and the printable edition (the PDF and the single-file HTML),
+/// which says where the web page is.
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct EditionText {
+    pub site: String,
+    pub links: Vec<Link>,
+    pub print_note: String,
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct NextText {
@@ -152,6 +163,7 @@ pub struct Strings {
     pub names: Names,
     pub nav: Vec<Link>,
     pub intro: Intro,
+    pub edition: EditionText,
     pub next: NextText,
     pub checkpoints: BTreeMap<String, CheckpointText>,
     pub stats: Vec<Stat>,
@@ -230,6 +242,9 @@ pub struct Item {
     pub max: String,
     #[serde(skip_serializing_if = "std::ops::Not::not")]
     pub graded: bool,
+    /// A question shown with its answer open (the printable edition's FAQ).
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub open: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -239,6 +254,9 @@ pub struct Tab {
     pub lede: Vec<Seg>,
     pub items: Vec<Item>,
     pub selected: bool,
+    /// The tab's label as a heading over its steps, in the printable edition,
+    /// where every tab is shown at once; empty on the web page.
+    pub heading: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -278,15 +296,22 @@ pub struct Intro2 {
     pub eyebrow: Vec<Seg>,
     pub paragraphs: Vec<Vec<Seg>>,
     pub note: Vec<Seg>,
+    /// The printable files, on the web page only.
+    pub links: Vec<Link>,
+    /// Where the web page is, in the printable edition only.
+    pub edition_note: Vec<Seg>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct Page {
+    /// "web" or "print".
+    pub edition: String,
     pub title: String,
     pub course: String,
     pub nav: Vec<Link>,
     pub intro: Intro2,
-    pub next: Next,
+    /// The next checkpoint; none in the printable edition, which has no date.
+    pub next: Option<Next>,
     pub stats: Vec<Stat>,
     pub sections: Vec<Section>,
     pub footer: Vec<Vec<Seg>>,
@@ -360,6 +385,7 @@ pub fn vars(strings: &Strings, s: &Schedule) -> Result<Vars, String> {
         v.set(name, value.to_string());
     }
     v.set("due_time", due_time(n, s));
+    v.set("site", strings.edition.site.clone());
     for r in &s.rubric {
         v.set(format!("points:{}", r.id), r.points.to_string());
     }
@@ -408,7 +434,15 @@ fn status_key(st: Status) -> &'static str {
     }
 }
 
-fn schedule_rows(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<Vec<Item>, String> {
+/// The schedule's rows. In the printable edition no row is done or next, because
+/// a printed page has no date; only the graded row keeps its label.
+fn schedule_rows(
+    strings: &Strings,
+    s: &Schedule,
+    now: i64,
+    printable: bool,
+    v: &Vars,
+) -> Result<Vec<Item>, String> {
     let n = &strings.names;
     let statuses = s.statuses(now);
     let mut rows = Vec::new();
@@ -434,7 +468,7 @@ fn schedule_rows(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<
             .checkpoints
             .get(&c.id)
             .ok_or_else(|| format!("The strings file has no text for checkpoint {}.", c.id))?;
-        let st = statuses[i];
+        let st = if printable { Status::Upcoming } else { statuses[i] };
         rows.push(Item {
             id: c.id.clone(),
             tag: (i + 1).to_string(),
@@ -446,6 +480,8 @@ fn schedule_rows(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<
             graded: c.graded,
             status_label: if c.graded && st != Status::Next {
                 fill(&strings.status.graded, v)?
+            } else if printable {
+                String::new()
             } else {
                 status_label(&strings.status, st).to_string()
             },
@@ -455,15 +491,23 @@ fn schedule_rows(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<
     Ok(rows)
 }
 
+/// How the page is being drawn: the moment, the open setup tab, and whether
+/// this is the printable edition.
+struct Drawn<'a> {
+    now: i64,
+    tab: &'a str,
+    printable: bool,
+}
+
 fn section(
     index: usize,
     sec: &SectionIn,
     strings: &Strings,
     s: &Schedule,
-    now: i64,
-    tab: &str,
+    d: &Drawn,
     v: &Vars,
 ) -> Result<Section, String> {
+    let Drawn { now, tab, printable } = *d;
     let mut items = Vec::new();
     let mut total = String::new();
     match sec.kind.as_str() {
@@ -480,7 +524,7 @@ fn section(
                 items.push(out);
             }
         }
-        "schedule" => items = schedule_rows(strings, s, now, v)?,
+        "schedule" => items = schedule_rows(strings, s, now, printable, v)?,
         "rubric" => {
             for r in &s.rubric {
                 items.push(Item {
@@ -501,6 +545,7 @@ fn section(
                         format!("Section \"{}\" has no label for owner \"{}\".", sec.id, i.owner)
                     })?;
                 }
+                out.open = printable && sec.kind == "faq";
                 items.push(out);
             }
         }
@@ -517,7 +562,8 @@ fn section(
             label: t.label.clone(),
             lede: render(&t.lede, v)?,
             items: t.items.iter().map(|i| item(i, v)).collect::<Result<_, _>>()?,
-            selected: t.id == selected,
+            selected: printable || t.id == selected,
+            heading: if printable { t.label.clone() } else { String::new() },
         });
     }
     Ok(Section {
@@ -586,9 +632,13 @@ fn next(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<Next, Str
 }
 
 /// The whole page at minute `now`, with tab `tab` open in the setup section.
-pub fn page(strings: &Strings, s: &Schedule, now: i64, tab: &str) -> Result<Page, String> {
+/// The printable edition (`printable`) is the same page without a date: no next
+/// checkpoint, every setup tab and FAQ answer open, and a note saying where
+/// the web page is in place of the links to the printable files.
+pub fn page(strings: &Strings, s: &Schedule, now: i64, tab: &str, printable: bool) -> Result<Page, String> {
     let v = vars(strings, s)?;
     Ok(Page {
+        edition: if printable { "print" } else { "web" }.into(),
         title: strings.title.clone(),
         course: strings.course.clone(),
         nav: strings.nav.clone(),
@@ -596,8 +646,22 @@ pub fn page(strings: &Strings, s: &Schedule, now: i64, tab: &str) -> Result<Page
             eyebrow: render(&strings.intro.eyebrow, &v)?,
             paragraphs: all(&strings.intro.paragraphs, &v)?,
             note: render(&strings.intro.note, &v)?,
+            links: if printable {
+                Vec::new()
+            } else {
+                strings.edition.links.clone()
+            },
+            edition_note: if printable {
+                render(&strings.edition.print_note, &v)?
+            } else {
+                Vec::new()
+            },
         },
-        next: next(strings, s, now, &v)?,
+        next: if printable {
+            None
+        } else {
+            Some(next(strings, s, now, &v)?)
+        },
         stats: strings
             .stats
             .iter()
@@ -612,7 +676,7 @@ pub fn page(strings: &Strings, s: &Schedule, now: i64, tab: &str) -> Result<Page
             .sections
             .iter()
             .enumerate()
-            .map(|(i, sec)| section(i, sec, strings, s, now, tab, &v))
+            .map(|(i, sec)| section(i, sec, strings, s, &Drawn { now, tab, printable }, &v))
             .collect::<Result<_, _>>()?,
         footer: all(&strings.footer, &v)?,
     })

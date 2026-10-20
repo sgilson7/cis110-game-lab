@@ -38,6 +38,10 @@ One row per assumption, surprise or open item. **Kind** is *divergence* (what wa
 | R2.17 | worklist | The build-day prompt works on 30 November. | It points at `prompts/start-from-submission.md` on Builder's main branch, which exists only on the unmerged branch of PR #1. | Merge PR #1 before 30 November, or name the `office-intake` branch in the prompt. | | person |
 | R2.18 | finding | Any form tool will do for team sign-up and peer ratings. | Peer ratings feed a grade, so they are likely education records under FERPA. Google Forms on a personal account sits outside CCCC's Microsoft 365. | The kit builds Google Forms as asked and lists the same questions for Microsoft Forms; GL-Q10 asks which to use. | | person |
 | R2.19 | divergence | The kit can follow the live page word for word. | The page says the peer rating is "in Blackboard" and that a game "is posted only if every team member agrees", which leaves open whether a prototype link counts as posting. | The kit links the rating form from Blackboard (GL-Q11) and asks permission for prototype links and the gallery separately (GL-Q12). The page is unchanged. | | person |
+| R2.20 | worklist | Blackboard shows an uploaded HTML file as a page. | Blackboard's help pages list PDF, Office files and images for inline viewing, but not HTML; an uploaded HTML file may download instead. The single-file copy works either way, because it opens from a Downloads folder. | Upload both files to a Blackboard content item and open them with the student preview. | | person |
+| R2.21 | divergence | The core could call its new flag `print`. | `boundary.rs` bans the word, because `print!` is output. | The flag is `printable`; the address still says `?edition=print`. | `crates/core/tests/boundary.rs` | done |
+| R2.22 | finding | The PDF could print the web page's layout as it is. | Chromium overlapped text where a CSS grid broke across pages (the PowerPoint card, the last schedule row). | In print, the containers that span pages are blocks spaced with margins (`web/style.css`, `@media print`). I checked all 13 pages by eye. | | done |
+| R2.23 | worklist | CCCC can host the site. | I don't know whether CCCC offers faculty web space. The site needs only static files and one setting (`.wasm` served as `application/wasm`). | Ask CCCC IT with the email in the journal's T9 entry. | | person |
 
 ## Strings written by the agent
 
@@ -47,3 +51,4 @@ Each reader-visible string the agent wrote, with its key, for the person to read
 | --- | --- |
 | all of `data/strings.json` | Written by the agent on 2026-10-19 in Google developer documentation style (T5); reviewed line by line in the journal's comparison entry. |
 | `GLOSSARY.md` | Six student-facing terms with `Not:` lines (GL-4). |
+| `edition` in `data/strings.json`, and the `<noscript>` line in `web/index.html` | "PDF version", "Offline copy (HTML)", the print edition's note on where the web page is, and "The PDF version has the same information." (T9). |

@@ -31,6 +31,9 @@ pub struct State {
     pub schedule: Schedule,
     pub now: i64,
     pub tab: String,
+    /// The printable edition: the page without a date (`?edition=print`).
+    #[serde(default)]
+    pub printable: bool,
 }
 
 /// A term and its definition, for the page's hover hints.
@@ -61,7 +64,13 @@ fn hints_from(glossary_md: &str) -> Result<Vec<Hint>, String> {
 }
 
 fn ui(state: State, hints: Vec<Hint>) -> Result<Ui, String> {
-    let page = page(&state.strings, &state.schedule, state.now, &state.tab)?;
+    let page = page(
+        &state.strings,
+        &state.schedule,
+        state.now,
+        &state.tab,
+        state.printable,
+    )?;
     let v = vars(&state.strings, &state.schedule)?;
     let hints = hints
         .into_iter()
@@ -90,21 +99,40 @@ pub fn moment(clock: &str, on: &str) -> Result<i64, String> {
     }
 }
 
+/// Which edition the address asks for: `""` for the web page, `"print"` for
+/// the edition the PDF and the single-file HTML are made from.
+pub fn edition(name: &str) -> Result<bool, String> {
+    match name {
+        "" => Ok(false),
+        "print" => Ok(true),
+        other => Err(format!("There is no edition \"{other}\".")),
+    }
+}
+
 /// Checks the strings, schedule and glossary and returns the page as of
 /// `clock` (the page's local time in the course's time zone), or as of `on`
-/// when the address names a date.
-pub fn start(strings_json: &str, schedule_json: &str, glossary_md: &str, clock: &str, on: &str) -> String {
+/// when the address names a date, in the edition the address names.
+pub fn start(
+    strings_json: &str,
+    schedule_json: &str,
+    glossary_md: &str,
+    clock: &str,
+    on: &str,
+    edition_name: &str,
+) -> String {
     let run = || -> Result<Ui, String> {
         let strings = Strings::parse(strings_json)?;
         let schedule = Schedule::parse(schedule_json)?;
         let hints = hints_from(glossary_md)?;
         let now = moment(clock, on)?;
+        let printable = edition(edition_name)?;
         ui(
             State {
                 strings,
                 schedule,
                 now,
                 tab: String::new(),
+                printable,
             },
             hints,
         )
@@ -157,7 +185,7 @@ mod tests {
     }
 
     fn at(clock: &str) -> serde_json::Value {
-        json(&start(STRINGS, SCHEDULE, GLOSSARY, clock, ""))
+        json(&start(STRINGS, SCHEDULE, GLOSSARY, clock, "", ""))
     }
 
     fn section<'a>(v: &'a serde_json::Value, id: &str) -> &'a serde_json::Value {
@@ -225,6 +253,7 @@ mod tests {
             GLOSSARY,
             "2026-10-19 10:00:00",
             "2026-11-20T10:00",
+            "",
         ));
         assert_eq!(v["ok"]["page"]["next"]["heading"], "Monday, November 23");
         let v = json(&start(
@@ -233,6 +262,7 @@ mod tests {
             GLOSSARY,
             "2026-10-19 10:00:00",
             "next week",
+            "",
         ));
         assert_eq!(v["ok"]["page"]["next"]["heading"], "Monday, October 26");
     }
@@ -344,16 +374,106 @@ mod tests {
             "### Checkpoint\n\nDue at {due_time}.\n",
             "2026-10-19 10:00:00",
             "",
+            "",
         ));
         assert_eq!(v["ok"]["hints"][0]["definition"], "Due at 5:00 PM ET.");
     }
 
     #[test]
     fn a_bad_clock_is_reported() {
-        let v = json(&start(STRINGS, SCHEDULE, GLOSSARY, "soon", ""));
+        let v = json(&start(STRINGS, SCHEDULE, GLOSSARY, "soon", "", ""));
         assert!(v["error"]
             .as_str()
             .unwrap()
             .starts_with("The page clock could not be read"));
+    }
+
+    fn print_edition() -> serde_json::Value {
+        json(&start(
+            STRINGS,
+            SCHEDULE,
+            GLOSSARY,
+            "2026-11-20 10:00:00",
+            "",
+            "print",
+        ))
+    }
+
+    #[test]
+    fn the_print_edition_has_no_next_checkpoint_and_no_dated_status() {
+        let v = print_edition();
+        assert_eq!(v["ok"]["page"]["edition"], "print");
+        assert!(v["ok"]["page"]["next"].is_null());
+        let rows = section(&v, "schedule")["items"].as_array().unwrap();
+        // On 20 November the web page marks C1 to C3 Closed and C4 Next; the
+        // printable edition marks none, and only the graded row keeps a label.
+        let labels: Vec<&str> = rows
+            .iter()
+            .map(|r| r["status_label"].as_str().unwrap_or(""))
+            .collect();
+        assert_eq!(labels, vec!["", "", "", "", "", "", "", "Graded · 100 points"]);
+        assert!(rows
+            .iter()
+            .all(|r| r["status"] != "done" && r["status"] != "next"));
+    }
+
+    #[test]
+    fn the_print_edition_opens_every_setup_tab_and_faq_answer() {
+        let v = print_edition();
+        let tabs = section(&v, "setup")["tabs"].as_array().unwrap();
+        assert_eq!(tabs.len(), 2);
+        assert!(tabs.iter().all(|t| t["selected"] == true));
+        assert_eq!(tabs[0]["heading"], "Microsoft 365");
+        assert_eq!(tabs[1]["heading"], "Google Drive (backup option)");
+        let faq = section(&v, "faq")["items"].as_array().unwrap();
+        assert_eq!(faq.len(), 7);
+        assert!(faq.iter().all(|q| q["open"] == true));
+    }
+
+    #[test]
+    fn the_web_page_links_the_printable_files_and_the_print_edition_names_the_site() {
+        let web = at("2026-11-20 10:00:00");
+        let links = web["ok"]["page"]["intro"]["links"].as_array().unwrap();
+        assert_eq!(links.len(), 2);
+        assert_eq!(links[0]["href"], "cis110-game-project.pdf");
+        assert_eq!(links[1]["href"], "cis110-game-project.html");
+        assert!(web["ok"]["page"]["intro"]["edition_note"]
+            .as_array()
+            .unwrap()
+            .is_empty());
+        assert!(section(&web, "faq")["items"][0]["open"].is_null());
+        assert_eq!(section(&web, "setup")["tabs"][1]["selected"], false);
+        let printable = print_edition();
+        assert!(printable["ok"]["page"]["intro"]["links"]
+            .as_array()
+            .unwrap()
+            .is_empty());
+        assert!(words(&printable["ok"]["page"]["intro"]["edition_note"])
+            .contains("https://sgilson7.github.io/cis110-game-lab/"));
+    }
+
+    #[test]
+    fn the_print_edition_survives_a_round_trip_through_act() {
+        let state = print_edition()["ok"]["state"].to_string();
+        let v = json(&act(&state, GLOSSARY, "setup.show", "google"));
+        assert!(v["ok"]["page"]["next"].is_null());
+        assert!(section(&v, "setup")["tabs"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|t| t["selected"] == true));
+    }
+
+    #[test]
+    fn an_unknown_edition_is_refused() {
+        let v = json(&start(
+            STRINGS,
+            SCHEDULE,
+            GLOSSARY,
+            "2026-11-20 10:00:00",
+            "",
+            "poster",
+        ));
+        assert_eq!(v["error"], "There is no edition \"poster\".");
     }
 }

@@ -63,3 +63,26 @@ def run(page, check, engine):
     # The templates are on this site.
     check(page.locator("a[href*='GameDesign.docx']").count() == 1, "the Word template link is present")
     check(page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), "the page does not scroll sideways")
+
+    # The printable editions (T9). The web page links the PDF and the single-file HTML, and both exist.
+    ready(page, base)
+    links = page.locator("#editions a")
+    check(links.count() == 2, "the intro links two printable files")
+    for href in [links.nth(0).get_attribute("href"), links.nth(1).get_attribute("href")]:
+        check(page.request.get(base.rsplit("/", 1)[0] + "/" + href).status == 200, f"{href} is published")
+
+    # The print edition: no date, so no next-checkpoint card and no Closed or Next label;
+    # both setup tabs (8 + 4 steps) and all seven FAQ answers open.
+    ready(page, base + "?edition=print&on=2026-11-20T10:00")
+    check(page.locator("#next").is_hidden(), "the print edition has no next-checkpoint card")
+    check(page.locator(".row[data-status='done'], .row[data-status='next']").count() == 0, "no checkpoint is marked passed or next")
+    check(page.locator("[role='tabpanel']").count() == 2 and page.locator("ol.steps li").count() == 12, "both setup tabs are shown, 8 and 4 steps")
+    check(page.locator("details[open]").count() == 7, "all seven FAQ answers are open")
+    check("sgilson7.github.io/cis110-game-lab" in page.inner_text("#edition-note"), "the print edition says where the web page is")
+
+    # The single-file HTML: no script, and every picture and template inside the file.
+    page.goto(base.rsplit("/", 1)[0] + "/cis110-game-project.html")
+    check(page.locator("script").count() == 0, "the single-file HTML has no script")
+    check(page.inner_text("h1") == "Collaborative Game Design Project", "the single-file HTML shows the title")
+    check(page.locator(".game img[src^='data:image/']").count() == 10, "its ten gallery pictures are inside the file")
+    check(page.locator(".downloads a[href^='data:']").count() == 4, "its four downloads are inside the file")

@@ -89,5 +89,54 @@
     "find": "what: render(&words.summary, &v)?,",
     "replace": "what: render(&c.phase, &v)?,",
     "test": "on_census_day_the_next_checkpoint_is_team_up_in_seven_days"
+  },
+  {
+    "name": "the print edition has no next checkpoint",
+    "file": "crates/core/src/view.rs",
+    "find": "next: if printable {",
+    "replace": "next: if false {",
+    "test": "the_print_edition_has_no_next_checkpoint_and_no_dated_status"
+  },
+  {
+    "name": "the print edition has no dated status",
+    "file": "crates/core/src/view.rs",
+    "find": "let st = if printable { Status::Upcoming } else { statuses[i] };",
+    "replace": "let st = statuses[i];",
+    "test": "the_print_edition_has_no_next_checkpoint_and_no_dated_status"
+  },
+  {
+    "name": "the print edition opens every setup tab",
+    "file": "crates/core/src/view.rs",
+    "find": "selected: printable || t.id == selected,",
+    "replace": "selected: t.id == selected,",
+    "test": "the_print_edition_opens_every_setup_tab_and_faq_answer"
+  },
+  {
+    "name": "the print edition opens every FAQ answer",
+    "file": "crates/core/src/view.rs",
+    "find": "out.open = printable && sec.kind == \"faq\";",
+    "replace": "out.open = false;",
+    "test": "the_print_edition_opens_every_setup_tab_and_faq_answer"
+  },
+  {
+    "name": "the web page shows the printable links",
+    "file": "crates/core/src/view.rs",
+    "find": "links: if printable {",
+    "replace": "links: if true {",
+    "test": "the_web_page_links_the_printable_files_and_the_print_edition_names_the_site"
+  },
+  {
+    "name": "the edition survives act",
+    "file": "crates/core/src/api.rs",
+    "find": "        state.printable,\n",
+    "replace": "        false,\n",
+    "test": "the_print_edition_survives_a_round_trip_through_act"
+  },
+  {
+    "name": "an unknown edition is refused",
+    "file": "crates/core/src/api.rs",
+    "find": "other => Err(format!(\"There is no edition",
+    "replace": "_other => Ok(false), _ if false => Err(format!(\"There is no edition",
+    "test": "an_unknown_edition_is_refused"
   }
 ]

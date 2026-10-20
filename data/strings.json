@@ -1,5 +1,5 @@
 {
-  "_note": "Every word a student reads. Placeholders in braces are filled by the core from data/schedule.json: {team_min}, {team_max}, {files}, {checkpoints}, {total}, {rest}, {points:ID}, {due_time}, {long:C1} to {long:C7}, {short:C1} to {short:C7}, {links_by}, {days}, {n}, {count}, {late_percent}, {word_pages_min}, {word_pages_max}, {slides_min}, {slides_max}, {min_rows}. **Bold** marks an interface name; `code` marks a file or folder name.",
+  "_note": "Every word a student reads. Placeholders in braces are filled by the core from data/schedule.json: {team_min}, {team_max}, {files}, {checkpoints}, {total}, {rest}, {site}, {points:ID}, {due_time}, {long:C1} to {long:C7}, {short:C1} to {short:C7}, {links_by}, {days}, {n}, {count}, {late_percent}, {word_pages_min}, {word_pages_max}, {slides_min}, {slides_max}, {min_rows}. **Bold** marks an interface name; `code` marks a file or folder name.",
   "title": "Collaborative Game Design Project",
   "course": "CIS 110 LN182 · Introduction to Computers · Fall 2026, second 8-week session",
   "names": {
@@ -93,6 +93,20 @@
       "The project runs alongside the SAM modules. You write each file while you're learning its app: the design document in Word, the game data in Excel, and the summary in PowerPoint."
     ],
     "note": "All deadlines are at {due_time}. Late work loses {late_percent}%."
+  },
+  "edition": {
+    "site": "https://sgilson7.github.io/cis110-game-lab/",
+    "links": [
+      {
+        "href": "cis110-game-project.pdf",
+        "label": "PDF version"
+      },
+      {
+        "href": "cis110-game-project.html",
+        "label": "Offline copy (HTML)"
+      }
+    ],
+    "print_note": "This is the printable version of the assignment page. The web version at `{site}` also shows which checkpoint is next."
   },
   "next": {
     "label": "Next checkpoint",
