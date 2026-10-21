@@ -41,6 +41,13 @@ wasm-bindgen --target web --no-typescript --out-dir dist/pkg \
 cp -R web/. dist/
 cp -R data/. dist/data/
 cp GLOSSARY.md dist/data/glossary.md
+# The tool version (T14) at tool/: web/tool/index.html loads ../app.js, whose
+# fetches resolve against the page, so tool/data/ holds the tool version's
+# words and the shared schedule, clock and glossary.
+mkdir -p dist/tool/data
+cp data/tool/strings.json dist/tool/data/strings.json
+cp data/schedule.json data/clock.json dist/tool/data/
+cp GLOSSARY.md dist/tool/data/glossary.md
 
 # Cache busting. The hash covers every file, so any change gives new URLs.
 BUILD=$(find dist -type f | LC_ALL=C sort | xargs cat | sha256 | cut -c1-12)

@@ -18,13 +18,13 @@ Not: milestone, stage, sprint
 
 ### Design document
 
-The Word file that describes your game in your team's own words, under the template's ten headings.
+The Word file that describes your game or tool in your team's own words, under the template's ten headings.
 
 Not: brief, spec, specification, GDD
 
 ### Prototype
 
-A first playable version of your game, built from your folder as it stands on {long:C5}. It is ungraded.
+A first working version of your game or tool, built from your folder as it stands on {long:C5}. It is ungraded.
 
 Not: alpha, beta, MVP
 
@@ -36,7 +36,7 @@ Not: repository, repo, project directory
 
 ### Team
 
-The {team_min} to {team_max} classmates who design one game together.
+The {team_min} to {team_max} classmates who design one game or tool together.
 
 Not: squad, crew
 

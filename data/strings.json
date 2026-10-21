@@ -87,9 +87,10 @@
     }
   ],
   "intro": {
-    "eyebrow": "Capstone project · teams of {team_min} to {team_max}",
+    "eyebrow": "Capstone project · game version · teams of {team_min} to {team_max}",
     "paragraphs": [
       "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files. I then turn your design into a game you can play in a web browser, using a game-making framework I built for my PhD.",
+      "Would your team rather design a tool than a game? Use the tool version of this page, linked below. It has the same dates and grading.",
       "The project runs alongside the SAM modules. You write the design document after the Word modules and fill in the game data while you learn Excel. The slides come before the PowerPoint modules, and they need only basic slides and shapes."
     ],
     "note": "All deadlines are at {due_time}. Late work loses {late_percent}%."
@@ -104,9 +105,13 @@
       {
         "href": "cis110-game-project.html",
         "label": "Offline copy (HTML)"
+      },
+      {
+        "href": "tool/",
+        "label": "Tool version of this page"
       }
     ],
-    "print_note": "This is the printable version of the assignment page. The web version at `{site}` also shows which checkpoint is next."
+    "print_note": "This is the printable version of the assignment page. The web version at `{site}` also shows which checkpoint is next. The tool version is at `{site}tool/`."
   },
   "next": {
     "label": "Next checkpoint",
@@ -269,11 +274,6 @@
           "href": "data/templates/GameDesign.docx",
           "title": "GameDesign.docx",
           "text": "Word template"
-        },
-        {
-          "href": "data/templates/tool/GameDesign.docx",
-          "title": "GameDesign.docx (tool version)",
-          "text": "Word template for a team designing a tool"
         },
         {
           "href": "data/templates/GameData.xlsx",
@@ -520,7 +520,7 @@
       "heading": "What happens to your game",
       "lede": [
         "Games built with this framework run in any modern web browser, with nothing to install. If everyone on your team agrees, I post your game to a public class gallery, which you can link from a résumé or portfolio.",
-        "Your team can also design a tool instead of a game: something you'd want for a hobby, a job, or another class. The last three examples below are tools built with the same framework."
+        "Would your team rather design a tool, such as one for a hobby, a job, or another class? Use the tool version of this page. Its examples include three tools built with the same framework."
       ],
       "items": [
         {
@@ -615,27 +615,6 @@
           "href": "https://sgilson7.github.io/packet-alley/",
           "image": "data/img/games/packet-alley.jpg",
           "alt": "A Packet Alley level with a small network map"
-        },
-        {
-          "title": "PDF Redactor",
-          "text": "Find names and other identifiers in a PDF, review the redaction boxes, and save a clean copy",
-          "href": "https://sgilson7.github.io/pdf-redactor/",
-          "image": "data/img/games/pdf-redactor.jpg",
-          "alt": "The PDF Redactor start screen"
-        },
-        {
-          "title": "PDF Signature Adder",
-          "text": "Sign a PDF with a drawn or pasted signature, without uploading it anywhere",
-          "href": "https://sgilson7.github.io/pdf-signature-adder/",
-          "image": "data/img/games/pdf-signature-adder.jpg",
-          "alt": "The PDF Signature Adder start screen"
-        },
-        {
-          "title": "MP4 to Transcript",
-          "text": "Turn a recording into a transcript laid out like Zoom's, in your browser",
-          "href": "https://sgilson7.github.io/mp4-to-transcript/",
-          "image": "data/img/games/mp4-to-transcript.jpg",
-          "alt": "The MP4 to Transcript start screen"
         }
       ]
     },
@@ -656,7 +635,7 @@
         },
         {
           "title": "Does it have to be a game?",
-          "text": "No. Your team can design a tool you'd want to use, such as one for a hobby, a job, or another class. Download the tool version of GameDesign.docx under **What to submit**. It keeps the same file name and asks about the tool's user, inputs, and outputs. In GameData.xlsx, leave the **Levels** sheet empty if your tool has no levels. Tell me in your pitch at checkpoint 2 that you're making a tool."
+          "text": "No. Your team can design a tool instead, such as one for a hobby, a job, or another class. Use the tool version of this page, which has tool versions of the three templates and the same dates and grading."
         },
         {
           "title": "How does my team talk before we have a shared folder?",

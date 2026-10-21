@@ -63,7 +63,9 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.27: update the syllabus calendar for C3 to C5 (9, 16 and 23 November).
 - R2.28: accept that the PowerPoint draft now comes before the SAM PowerPoint modules.
 - R2.29: read the FAQ answer for teams that design a tool; the templates are still written for a game.
-- R2.30: read the ten prompts in the tool version of the design document; the slides and the example folder are still game-only.
+- R2.30: replaced by T14: the tool version now has its own three templates and example.
+- R2.32: read the tool version of the page and the Recipe Scaler example folder; every line is agent-written.
+- R2.33: add the tool version's link, PDF and offline copy to Blackboard beside the game version's.
 
 ## Mistakes so far
 

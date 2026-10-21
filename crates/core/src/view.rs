@@ -66,6 +66,11 @@ pub struct CheckpointText {
     pub summary: String,
     pub detail: String,
     pub todo: Vec<String>,
+    /// The checkpoint's line on the schedule. Empty uses the syllabus wording
+    /// from the schedule, so a second version of the page (the tool version)
+    /// can reword a line without a second copy of the dates.
+    #[serde(default)]
+    pub line: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
@@ -166,6 +171,10 @@ pub struct Strings {
     pub edition: EditionText,
     pub next: NextText,
     pub checkpoints: BTreeMap<String, CheckpointText>,
+    /// Rubric part names by rubric id, in place of the schedule's. Empty keeps
+    /// the schedule's; an id the schedule lacks is an error.
+    #[serde(default)]
+    pub rubric: BTreeMap<String, String>,
     pub stats: Vec<Stat>,
     pub status: StatusText,
     pub sections: Vec<SectionIn>,
@@ -473,7 +482,14 @@ fn schedule_rows(
             id: c.id.clone(),
             tag: (i + 1).to_string(),
             title: render(&c.phase, v)?,
-            text: render(&c.syllabus, v)?,
+            text: render(
+                if words.line.is_empty() {
+                    &c.syllabus
+                } else {
+                    &words.line
+                },
+                v,
+            )?,
             detail: render(&words.detail, v)?,
             date: short_date(n, day),
             status: status_key(st).into(),
@@ -529,7 +545,7 @@ fn section(
             for r in &s.rubric {
                 items.push(Item {
                     id: r.id.clone(),
-                    title: render(&r.part, v)?,
+                    title: render(strings.rubric.get(&r.id).unwrap_or(&r.part), v)?,
                     value: r.points.to_string(),
                     max: s.largest().to_string(),
                     ..Item::default()
@@ -637,6 +653,15 @@ fn next(strings: &Strings, s: &Schedule, now: i64, v: &Vars) -> Result<Next, Str
 /// the web page is in place of the links to the printable files.
 pub fn page(strings: &Strings, s: &Schedule, now: i64, tab: &str, printable: bool) -> Result<Page, String> {
     let v = vars(strings, s)?;
+    if let Some(id) = strings
+        .rubric
+        .keys()
+        .find(|id| !s.rubric.iter().any(|r| &r.id == *id))
+    {
+        return Err(format!(
+            "The strings file renames rubric part \"{id}\", which the schedule does not have."
+        ));
+    }
     Ok(Page {
         edition: if printable { "print" } else { "web" }.into(),
         title: strings.title.clone(),

@@ -434,9 +434,10 @@ mod tests {
     fn the_web_page_links_the_printable_files_and_the_print_edition_names_the_site() {
         let web = at("2026-11-20 10:00:00");
         let links = web["ok"]["page"]["intro"]["links"].as_array().unwrap();
-        assert_eq!(links.len(), 2);
+        assert_eq!(links.len(), 3);
         assert_eq!(links[0]["href"], "cis110-game-project.pdf");
         assert_eq!(links[1]["href"], "cis110-game-project.html");
+        assert_eq!(links[2]["href"], "tool/");
         assert!(web["ok"]["page"]["intro"]["edition_note"]
             .as_array()
             .unwrap()
@@ -462,6 +463,70 @@ mod tests {
             .unwrap()
             .iter()
             .all(|t| t["selected"] == true));
+    }
+
+    const TOOL: &str = include_str!("../../../data/tool/strings.json");
+
+    fn tool_at(clock: &str, edition: &str) -> serde_json::Value {
+        json(&start(TOOL, SCHEDULE, GLOSSARY, clock, "", edition))
+    }
+
+    #[test]
+    fn the_tool_version_rewords_lines_and_keeps_the_dates_and_points() {
+        let v = tool_at("2026-11-20 10:00:00", "");
+        assert_eq!(v["ok"]["page"]["title"], "Collaborative Tool Design Project");
+        let rows = section(&v, "schedule")["items"].as_array().unwrap();
+        let c2 = rows.iter().find(|r| r["id"] == "C2").unwrap();
+        assert_eq!(c2["date"], "Mon, Nov 2");
+        assert_eq!(
+            words(&c2["text"]),
+            "Tool idea chosen; roles assigned; shared folder created"
+        );
+        let c6 = rows.iter().find(|r| r["id"] == "C6").unwrap();
+        assert_eq!(
+            words(&c6["text"]),
+            "Complete folder shared for instructor feedback"
+        );
+        let rubric = section(&v, "grading")["items"].as_array().unwrap();
+        assert_eq!(words(&rubric[0]["title"]), "Tool concept and usable scope");
+        assert_eq!(rubric[0]["value"], "20");
+        assert_eq!(
+            words(&rubric[4]["title"]),
+            "Shared-folder organization and collaboration"
+        );
+        assert_eq!(section(&v, "grading")["total"], "100");
+        assert_eq!(v["ok"]["page"]["next"]["heading"], "Monday, November 23");
+        let game = at("2026-11-20 10:00:00");
+        let game_c2 = section(&game, "schedule")["items"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|r| r["id"] == "C2")
+            .unwrap()
+            .clone();
+        assert_eq!(
+            words(&game_c2["text"]),
+            "Game concept chosen; roles assigned; shared folder created"
+        );
+        assert!(tool_at("2026-11-20 10:00:00", "print")["ok"]["page"]["next"].is_null());
+    }
+
+    #[test]
+    fn renaming_a_rubric_part_the_schedule_lacks_is_refused() {
+        let mut strings: serde_json::Value = json(TOOL);
+        strings["rubric"]["sound"] = "Sound design".into();
+        let v = json(&start(
+            &strings.to_string(),
+            SCHEDULE,
+            GLOSSARY,
+            "2026-11-20 10:00:00",
+            "",
+            "",
+        ));
+        assert_eq!(
+            v["error"],
+            "The strings file renames rubric part \"sound\", which the schedule does not have."
+        );
     }
 
     #[test]

@@ -11,9 +11,10 @@ The page shows what each team submits, the seven checkpoints and their due dates
 | What | Where |
 | --- | --- |
 | Dates, times, limits and points, copied from the syllabus | `data/schedule.json` |
-| Every word on the page | `data/strings.json` |
+| Every word on the page (game version, at the site's root) | `data/strings.json` |
+| Every word on the tool version, at `tool/` (T14) | `data/tool/strings.json`, with its page shell in `web/tool/index.html` |
 | What each term means | `GLOSSARY.md` |
-| The Word, Excel and PowerPoint templates | `data/templates/` |
+| The Word, Excel and PowerPoint templates | `data/templates/` (game), `data/templates/tool/` (tool) |
 | The rules: which checkpoint is next, totals, dates in words | `crates/core/src/` |
 
 To change a date or a point value, edit `data/schedule.json` and the matching test in `crates/core/tests/syllabus.rs` together. To preview the page as of another date, add `?on=2026-11-20T10:00` to the address.

@@ -138,5 +138,26 @@
     "find": "other => Err(format!(\"There is no edition",
     "replace": "_other => Ok(false), _ if false => Err(format!(\"There is no edition",
     "test": "an_unknown_edition_is_refused"
+  },
+  {
+    "name": "a checkpoint's own line replaces the syllabus wording",
+    "file": "crates/core/src/view.rs",
+    "find": "if words.line.is_empty() {",
+    "replace": "if true || words.line.is_empty() {",
+    "test": "the_tool_version_rewords_lines_and_keeps_the_dates_and_points"
+  },
+  {
+    "name": "a rubric part name from the strings replaces the schedule's",
+    "file": "crates/core/src/view.rs",
+    "find": "strings.rubric.get(&r.id).unwrap_or(&r.part)",
+    "replace": "&r.part",
+    "test": "the_tool_version_rewords_lines_and_keeps_the_dates_and_points"
+  },
+  {
+    "name": "renaming a rubric part the schedule lacks is refused",
+    "file": "crates/core/src/view.rs",
+    "find": ".find(|id| !s.rubric.iter().any(|r| &r.id == *id))",
+    "replace": ".find(|_| false)",
+    "test": "renaming_a_rubric_part_the_schedule_lacks_is_refused"
   }
 ]

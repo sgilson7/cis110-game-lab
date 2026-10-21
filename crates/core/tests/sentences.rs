@@ -50,7 +50,11 @@ fn long_sentences(text: &str) -> Vec<String> {
 fn every_student_facing_sentence_is_under_25_words() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     let mut problems = Vec::new();
-    for name in ["data/strings.json", "data/schedule.json"] {
+    for name in [
+        "data/strings.json",
+        "data/tool/strings.json",
+        "data/schedule.json",
+    ] {
         let text = fs::read_to_string(root.join(name)).expect("read data file");
         let value: serde_json::Value = serde_json::from_str(&text).expect("data file is JSON");
         let mut found = Vec::new();
