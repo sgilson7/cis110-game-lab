@@ -31,4 +31,8 @@ python3 scripts/break_tests.py  # each row of tests/breaks.json must make its te
 ./scripts/publish.sh            # push dist/ to gh-pages, from a clean tree
 ```
 
+## Reusing the assignment
+
+The assignment is under [CC BY 4.0](LICENSE-ASSIGNMENT.md): copy it into your own course and adapt it, with credit. The code is under the [MIT licence](LICENSE). To run it for another class, change the dates and points in `data/schedule.json` (and the pinned values in `crates/core/tests/syllabus.rs`), the words in the two strings files, and the publishing target in `scripts/publish.sh`. The screenshots in `data/img/games/` are not covered; replace them with your own examples.
+
 This directory is a copy of the Builder template. Its rules are in `BUILDER-SPEC.md`, a coding agent's instructions are in `CLAUDE.md` and `AGENTS.md`, and the rules for every string are in `TONE.md`.

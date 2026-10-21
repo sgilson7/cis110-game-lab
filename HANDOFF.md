@@ -69,6 +69,7 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.35: upload the Blackboard module image (and the banner, if wanted) with the alt text from the journal.
 - R2.36: confirm the recording's due date (C5), length (3 to 5 minutes) and place in the 20 PowerPoint points, and announce it in Blackboard.
 - R2.37: try both recording routes (desktop app, and a screen recorder) with a CCCC student account.
+- R2.38: push the licence commit (T17: MIT for the code, CC BY 4.0 for the assignment), and decide whether the page footer names the licence.
 
 ## Mistakes so far
 
