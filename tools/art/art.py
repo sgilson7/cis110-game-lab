@@ -13,6 +13,10 @@ tools/art/pictures.py and in any tools/art/art_*.py module. A function takes
 a seeded random.Random and returns an artlib.Fig. The name "units/cat"
 writes web/art/units/cat.png and keeps its TeX at tools/art/src/units/cat.tex.
 
+PNGs go to web/art/ unless data/art.json names another folder in "out"
+(this project uses data/img/art/, because its boundary test reads every file
+under web/ as text: R2.2, R2.34).
+
 Sizes, caps and transparency per kind come from data/art.json "sizes"; the
 colours and ink widths from the style pack it names (style.py). Each
 picture's random generator is seeded from its name, so a run draws the same
@@ -105,6 +109,8 @@ def main(argv):
     check_only = "--check-only" in argv
     only = {a for a in argv if not a.startswith("--")}
     cfg = style.config(ROOT)
+    global OUT
+    OUT = ROOT / cfg.get("out", "web/art")
     artlib.SIZES.update({k: tuple(v["cm"]) for k, v in cfg["sizes"].items()})
     pics = pictures()
     names = selected(pics, only)

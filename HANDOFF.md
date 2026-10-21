@@ -66,6 +66,7 @@ Binary files under `web/` break the boundary scan; put them in `data/` (R2.2). `
 - R2.30: replaced by T14: the tool version now has its own three templates and example.
 - R2.32: read the tool version of the page and the Recipe Scaler example folder; every line is agent-written.
 - R2.33: add the tool version's link, PDF and offline copy to Blackboard beside the game version's.
+- R2.35: upload the Blackboard module image (and the banner, if wanted) with the alt text from the journal.
 
 ## Mistakes so far
 

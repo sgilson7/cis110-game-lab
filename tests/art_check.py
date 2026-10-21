@@ -153,7 +153,8 @@ def test_style(t):
 
 def test_driver(t, pack):
     proj = t / "proj"
-    shutil.copytree(ART, proj / "tools" / "art", ignore=shutil.ignore_patterns("__pycache__", "src"))
+    # The generic pipeline only: the project's own picture modules (art_*.py) stay behind.
+    shutil.copytree(ART, proj / "tools" / "art", ignore=shutil.ignore_patterns("__pycache__", "src", "art_*.py"))
     (proj / "data").mkdir()
     cfg = json.loads((ROOT / "data" / "art.json").read_text())
     cfg["style"] = str(pack)
@@ -169,7 +170,7 @@ def test_driver(t, pack):
     r = subprocess.run(cmd, capture_output=True, text=True)
     ok(r.returncode == 1 and "missing" in r.stderr, "art.py --check-only fails on a missing PNG")
     W, H = cfg["sizes"]["icon"]["px"]
-    out = proj / "web" / "art" / "icons"
+    out = proj / cfg.get("out", "web/art") / "icons"
     out.mkdir(parents=True)
     png_write(out / "dot.png", W, H, lambda x, y: cutout_px(x, y, W, H))
     r = subprocess.run(cmd, capture_output=True, text=True)
