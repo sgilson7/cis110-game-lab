@@ -159,5 +159,12 @@
     "find": ".find(|id| !s.rubric.iter().any(|r| &r.id == *id))",
     "replace": ".find(|_| false)",
     "test": "renaming_a_rubric_part_the_schedule_lacks_is_refused"
+  },
+  {
+    "name": "the recording's length comes from the schedule",
+    "file": "crates/core/src/view.rs",
+    "find": "(\"recording_min\", s.recording_min),",
+    "replace": "(\"recording_min\", s.slides_min),",
+    "test": "the_presentation_recording_is_asked_for_with_its_length_from_the_schedule"
   }
 ]

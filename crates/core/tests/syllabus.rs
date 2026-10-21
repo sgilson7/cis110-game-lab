@@ -76,6 +76,8 @@ fn the_limits_match_page_9_and_the_late_penalty_page_8() {
     assert_eq!((s.team_min, s.team_max), (3, 5));
     assert_eq!((s.word_pages_min, s.word_pages_max), (2, 4));
     assert_eq!((s.slides_min, s.slides_max), (5, 8));
+    // Not from the syllabus: the presentation recording, added by the instructor (T16).
+    assert_eq!((s.recording_min, s.recording_max), (3, 5));
     assert_eq!(s.min_rows, 5);
     assert_eq!(s.late_percent, 20);
 }

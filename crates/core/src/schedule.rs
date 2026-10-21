@@ -66,6 +66,10 @@ pub struct Schedule {
     pub word_pages_max: i64,
     pub slides_min: i64,
     pub slides_max: i64,
+    /// The presentation recording's length in minutes (T16). Not in the
+    /// syllabus: the instructor added the recording on 2026-10-21.
+    pub recording_min: i64,
+    pub recording_max: i64,
     pub min_rows: i64,
     pub checkpoints: Vec<CheckpointIn>,
     pub breaks: Vec<BreakIn>,
@@ -211,7 +215,8 @@ mod tests {
 
     const SAMPLE: &str = r#"{
       "zone": "ET", "due_hour": 17, "due_minute": 0, "team_min": 3, "team_max": 5,
-      "late_percent": 20, "word_pages_min": 2, "word_pages_max": 4, "slides_min": 5, "slides_max": 8, "min_rows": 5,
+      "late_percent": 20, "word_pages_min": 2, "word_pages_max": 4, "slides_min": 5, "slides_max": 8,
+      "recording_min": 3, "recording_max": 5, "min_rows": 5,
       "checkpoints": [
         {"id": "A", "date": "2026-10-26", "phase": "a", "syllabus": "a"},
         {"id": "B", "date": "2026-11-02", "phase": "b", "syllabus": "b"},

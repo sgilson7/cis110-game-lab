@@ -385,6 +385,8 @@ pub fn vars(strings: &Strings, s: &Schedule) -> Result<Vars, String> {
         ("word_pages_max", s.word_pages_max),
         ("slides_min", s.slides_min),
         ("slides_max", s.slides_max),
+        ("recording_min", s.recording_min),
+        ("recording_max", s.recording_max),
         ("min_rows", s.min_rows),
         ("files", s.files.len() as i64),
         ("checkpoints", s.checkpoints.len() as i64),

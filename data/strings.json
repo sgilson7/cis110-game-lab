@@ -1,5 +1,5 @@
 {
-  "_note": "Every word a student reads. Placeholders in braces are filled by the core from data/schedule.json: {team_min}, {team_max}, {files}, {checkpoints}, {total}, {rest}, {site}, {points:ID}, {due_time}, {long:C1} to {long:C7}, {short:C1} to {short:C7}, {links_by}, {days}, {n}, {count}, {late_percent}, {word_pages_min}, {word_pages_max}, {slides_min}, {slides_max}, {min_rows}. **Bold** marks an interface name; `code` marks a file or folder name.",
+  "_note": "Every word a student reads. Placeholders in braces are filled by the core from data/schedule.json: {team_min}, {team_max}, {files}, {checkpoints}, {total}, {rest}, {site}, {points:ID}, {due_time}, {long:C1} to {long:C7}, {short:C1} to {short:C7}, {links_by}, {days}, {n}, {count}, {late_percent}, {word_pages_min}, {word_pages_max}, {slides_min}, {slides_max}, {recording_min}, {recording_max}, {min_rows}. **Bold** marks an interface name; `code` marks a file or folder name.",
   "title": "Collaborative Game Design Project",
   "course": "CIS 110 LN182 · Introduction to Computers · Fall 2026, second 8-week session",
   "names": {
@@ -70,6 +70,10 @@
       "label": "Set up your folder"
     },
     {
+      "href": "#record",
+      "label": "Record"
+    },
+    {
       "href": "#roles",
       "label": "Team roles"
     },
@@ -89,7 +93,7 @@
   "intro": {
     "eyebrow": "Capstone project · game version · teams of {team_min} to {team_max}",
     "paragraphs": [
-      "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files. I then turn your design into a game you can play in a web browser, using a game-making framework I built for my PhD.",
+      "In this project, you work with a team of {team_min} to {team_max} classmates to design a small video game. You don't write any code. Your team describes the game in three Microsoft Office files. One of you also records a short video presenting your slides. I then turn your design into a game you can play in a web browser, using a game-making framework I built for my PhD.",
       "Would your team rather design a tool than a game? Use the tool version of this page, linked below. It has the same dates and grading.",
       "The project runs alongside the SAM modules. You write the design document after the Word modules and fill in the game data while you learn Excel. The slides come before the PowerPoint modules, and they need only basic slides and shapes."
     ],
@@ -161,13 +165,15 @@
       ]
     },
     "C5": {
-      "summary": "Have a draft of the presentation in your folder, so all three files are in.",
-      "detail": "Every slide in the presentation has a draft. After this deadline, I download your folder and build a playable prototype of your game over Thanksgiving break.",
+      "summary": "Have a draft of the presentation and its recording in your folder, so everything is in.",
+      "detail": "Every slide in the presentation has a draft, and one member has recorded a video presenting it, saved as `GamePitch.mp4`. After this deadline, I download your folder and build a playable prototype of your game over Thanksgiving break.",
       "todo": [
         "Draft every slide in `GamePitch.pptx`",
         "Draw a mock-up of one screen with shapes",
+        "Record one member presenting the slides, and save `GamePitch.mp4` in the folder",
         "Comment on one slide a teammate made"
-      ]
+      ],
+      "line": "PowerPoint design summary and presentation recording in shared folder"
     },
     "C6": {
       "summary": "Play your prototype and add your change requests.",
@@ -187,6 +193,9 @@
         "Complete the private peer rating survey"
       ]
     }
+  },
+  "rubric": {
+    "ppt": "PowerPoint presentation and recording"
   },
   "stats": [
     {
@@ -252,15 +261,16 @@
         },
         {
           "id": "ppt",
-          "title": "Design summary",
+          "title": "Presentation and recording",
           "file": "GamePitch.pptx",
           "tag": "P",
-          "text": "A {slides_min}–{slides_max} slide presentation that explains your design to someone who hasn't read the document.",
+          "text": "A {slides_min}–{slides_max} slide presentation that explains your design to someone who hasn't read the document, and a video of one member presenting it.",
           "bullets": [
             "The central idea, on one slide",
             "The gameplay loop, as a diagram",
             "The key rules",
-            "A mock-up of one screen, drawn with shapes"
+            "A mock-up of one screen, drawn with shapes",
+            "A {recording_min}–{recording_max} minute recording of one member presenting the slides, saved as `GamePitch.mp4`"
           ]
         }
       ],
@@ -446,6 +456,10 @@
           {
             "name": "GameData.xlsx",
             "kind": "excel"
+          },
+          {
+            "name": "GamePitch.mp4",
+            "kind": "video"
           }
         ],
         "sharing": [
@@ -463,6 +477,64 @@
           }
         ]
       }
+    },
+    {
+      "id": "record",
+      "kind": "setup",
+      "eyebrow": "Presentation recording",
+      "heading": "Record your presentation",
+      "lede": [
+        "By {long:C5}, one team member records a video presenting your slides, {recording_min} to {recording_max} minutes long. Talk through each slide as if you were presenting to the class, so that someone who hasn't read your files understands your design.",
+        "Your voice is required; your face on camera is optional. Save the video in your shared folder as `GamePitch.mp4`. It counts toward the presentation's {points:ppt} points. I don't post the recording or put it in your game."
+      ],
+      "tabs": [
+        {
+          "id": "rec-desktop",
+          "label": "PowerPoint desktop app",
+          "lede": "",
+          "items": [
+            {
+              "title": "Open the slides in the desktop app.",
+              "text": "Open `GamePitch.pptx` from your shared folder. In a browser, select **Editing** > **Open in Desktop App**, because PowerPoint for the web can't record narration."
+            },
+            {
+              "title": "Record the slide show.",
+              "text": "On the **Record** tab, select **From Beginning**. On a Mac, select **Slide Show** > **Record Slide Show**. Talk through each slide, and press Esc when you finish."
+            },
+            {
+              "title": "Check it.",
+              "text": "Play the slide show from the beginning and listen. To redo one slide, go to it and select **Record** > **From Current Slide**."
+            },
+            {
+              "title": "Export the video.",
+              "text": "Select **File** > **Export** > **Create a Video**, keep **Use Recorded Timings and Narrations**, and select **Create Video**. On a Mac, select **File** > **Export** and choose **MP4**."
+            },
+            {
+              "title": "Save it in the folder.",
+              "text": "Name the video `GamePitch.mp4` and save or upload it to your shared folder."
+            }
+          ]
+        },
+        {
+          "id": "rec-other",
+          "label": "Without the desktop app",
+          "lede": "Use this if you can't install or open the PowerPoint desktop app, for example on a school laptop.",
+          "items": [
+            {
+              "title": "Start a screen recording.",
+              "text": "Use any screen recorder that records your voice, such as Clipchamp in a browser or the Snipping Tool on Windows. You can also film the screen with a phone."
+            },
+            {
+              "title": "Present the slides.",
+              "text": "Open the slides in PowerPoint for the web, select **Slide Show**, and talk through each slide."
+            },
+            {
+              "title": "Save it in the folder.",
+              "text": "Save the video as `GamePitch.mp4` and upload it to your shared folder. If your recorder saves another format, upload that file and send me a Blackboard message."
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "roles",
@@ -490,8 +562,8 @@
         },
         {
           "title": "Presenter",
-          "text": "Builds the slides, including the screen mock-up.",
-          "file": "GamePitch.pptx"
+          "text": "Builds the slides, including the screen mock-up, and records the presentation. Another member can record it instead.",
+          "file": "GamePitch.pptx and GamePitch.mp4"
         },
         {
           "title": "Art and sound lead",
@@ -534,6 +606,10 @@
         {
           "title": "Private information",
           "text": "Don't put phone numbers, addresses, grades, or photos of real people in your files."
+        },
+        {
+          "title": "Your recording",
+          "text": "Your presentation recording stays in your shared folder for grading. I don't post it or put it in your game."
         },
         {
           "title": "Posting is optional",

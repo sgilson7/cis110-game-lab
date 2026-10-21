@@ -54,10 +54,10 @@ def run(page, check, engine):
 
     # Setup tabs go through the core: Microsoft 365 first, then the Google Drive backup.
     check(page.get_attribute("#tab-m365", "aria-selected") == "true", "the Microsoft 365 tab is open first")
-    check(page.locator("ol.steps li").count() == 8, "the Microsoft 365 tab has eight steps")
+    check(page.locator("#setup ol.steps li").count() == 8, "the Microsoft 365 tab has eight steps")
     page.click("#tab-google")
     page.wait_for_selector("#tab-google[aria-selected='true']")
-    check(page.locator("ol.steps li").count() == 4, "the Google Drive tab has four steps")
+    check(page.locator("#setup ol.steps li").count() == 4, "the Google Drive tab has four steps")
     check("Use Google Drive only if" in page.inner_text(".tab-lede"), "the Google Drive tab opens by saying it is the backup")
 
     # T10: teams form and talk in Blackboard at checkpoint 1; the shared folder comes at checkpoint 2.
@@ -74,6 +74,17 @@ def run(page, check, engine):
     check("game version" in page.inner_text("#eyebrow").lower(), "the eyebrow says this is the game version")
     check("third-person action survival game" in page.inner_text("#after"), "Long Time Comin' is described as an action survival game")
     check("bullet" not in page.inner_text("#after").lower(), "no gallery text says bullet hell")
+
+    # T16: the presentation recording. Its section has two tabs, desktop first (5 steps), then without (3).
+    check(page.locator("#record h2").inner_text() == "Record your presentation", "the page has a section on recording the presentation")
+    check(page.locator("#record ol.steps li").count() == 5, "the desktop recording tab has five steps")
+    page.click("#tab-rec-other")
+    page.wait_for_selector("#tab-rec-other[aria-selected='true']")
+    check(page.locator("#record ol.steps li").count() == 3, "the other recording tab has three steps")
+    check("3–5 minute recording" in page.inner_text("#submit") and "GamePitch.mp4" in page.inner_text("#submit"), "the PowerPoint card asks for a 3–5 minute recording, GamePitch.mp4")
+    check("PowerPoint presentation and recording" in page.inner_text("#grading"), "the rubric names the recording")
+    c5 = page.locator(".row").filter(has=page.locator("time", has_text=re.compile(r"^Mon, Nov 23$"))).inner_text()
+    check("presentation recording" in c5, "checkpoint 5 asks for the recording")
 
     # The templates are on this site.
     check(page.locator("a[href*='templates/GameDesign.docx']").count() == 1, "the Word template link is present")
@@ -92,7 +103,7 @@ def run(page, check, engine):
     ready(page, base + "?edition=print&on=2026-11-20T10:00")
     check(page.locator("#next").is_hidden(), "the print edition has no next-checkpoint card")
     check(page.locator(".row[data-status='done'], .row[data-status='next']").count() == 0, "no checkpoint is marked passed or next")
-    check(page.locator("[role='tabpanel']").count() == 2 and page.locator("ol.steps li").count() == 12, "both setup tabs are shown, 8 and 4 steps")
+    check(page.locator("[role='tabpanel']").count() == 4 and page.locator("ol.steps li").count() == 20, "all four tabs are shown: 8 and 4 setup steps, 5 and 3 recording steps")
     check(page.locator("details[open]").count() == 9, "all nine FAQ answers are open")
     check("sgilson7.github.io/cis110-game-lab" in page.inner_text("#edition-note"), "the print edition says where the web page is")
 
@@ -120,6 +131,7 @@ def run_tool(page, check, base):
     check("Tool idea chosen" in c2, "tool: checkpoint 2 reads tool idea chosen")
     check([page.locator(".file code").nth(i).inner_text() for i in range(3)] == ["ToolDesign.docx", "ToolData.xlsx", "ToolPitch.pptx"], "tool: the file cards name the tool files")
     check("I build your tools over the break" in page.inner_text("#schedule"), "tool: the break row says tools")
+    check("ToolPitch.mp4" in page.inner_text("#record") and "ToolPitch.mp4" in page.inner_text("#submit"), "tool: the recording is ToolPitch.mp4")
     # Every word a student reads, outside the gallery, the game-version pointers and the URLs, says tool.
     text = page.inner_text("main")
     for part in page.locator("#after .gallery").all_inner_texts():

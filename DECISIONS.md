@@ -49,3 +49,12 @@ The agent decided (T14):
 - The game version shows only games in its gallery and points tool teams to the tool version; the tool version shows the three tools first, then the games.
 - Both share the glossary, whose three game-specific definitions now say "game or tool".
 
+> oh make it more clear that with the presentation, they will somehow have to add a voice recording / video of one of them explaining and doing the presentation
+
+The agent decided (T16):
+
+- One member records a video presenting the slides, 3 to 5 minutes, saved in the shared folder as `GamePitch.mp4` (tool version: `ToolPitch.mp4`). Voice is required; showing a face is optional.
+- It is due at C5 with the slides, so every deliverable stays before Thanksgiving (T11). It counts within the presentation's 20 points.
+- The length lives in `data/schedule.json` beside the slide range, so the page, the glossary and the tracker read one value.
+- The recording stays in the folder for grading and is not posted. Builder's intake leaves it, and any audio or video inside the slides, out of the project.
+

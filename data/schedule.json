@@ -1,5 +1,5 @@
 {
-  "_source": "CIS110_LN182_Fall2026_Second8Weeks_Final_SimpleSyllabus.pdf, page 9 (project) and page 23 (calendar and rubric). Change a value here only when the syllabus changes; crates/core/tests/syllabus.rs pins each one. Since T10 (2026-10-20), the C1 and C2 descriptions differ from the syllabus: the shared folder moved from C1 to C2, and teams talk in a Blackboard team discussion first. The dates were unchanged by T10. Since T11 (2026-10-20), C3 to C5 are a week earlier than the syllabus (9, 16 and 23 November), so every file is in before Thanksgiving and the prototype is built over the break.",
+  "_source": "CIS110_LN182_Fall2026_Second8Weeks_Final_SimpleSyllabus.pdf, page 9 (project) and page 23 (calendar and rubric). Change a value here only when the syllabus changes; crates/core/tests/syllabus.rs pins each one. Since T10 (2026-10-20), the C1 and C2 descriptions differ from the syllabus: the shared folder moved from C1 to C2, and teams talk in a Blackboard team discussion first. The dates were unchanged by T10. Since T11 (2026-10-20), C3 to C5 are a week earlier than the syllabus (9, 16 and 23 November), so every file is in before Thanksgiving and the prototype is built over the break. Since T16 (2026-10-21), C5 also asks for a recording of one member presenting the slides, recording_min to recording_max minutes; the syllabus doesn't mention it.",
   "zone": "ET",
   "due_hour": 17,
   "due_minute": 0,
@@ -10,6 +10,8 @@
   "word_pages_max": 4,
   "slides_min": 5,
   "slides_max": 8,
+  "recording_min": 3,
+  "recording_max": 5,
   "min_rows": 5,
   "checkpoints": [
     { "id": "C1", "date": "2026-10-26", "phase": "Team up", "syllabus": "Teams of {team_min} to {team_max} formed in Blackboard; introductions posted" },

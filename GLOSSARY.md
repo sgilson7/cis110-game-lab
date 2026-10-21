@@ -22,6 +22,12 @@ The Word file that describes your game or tool in your team's own words, under t
 
 Not: brief, spec, specification, GDD
 
+### Presentation recording
+
+A video, {recording_min} to {recording_max} minutes long, of one team member presenting your slides out loud. It stays in your shared folder for grading, and I don't post it.
+
+Not: vlog, podcast, livestream
+
 ### Prototype
 
 A first working version of your game or tool, built from your folder as it stands on {long:C5}. It is ungraded.

@@ -512,6 +512,39 @@ mod tests {
     }
 
     #[test]
+    fn the_presentation_recording_is_asked_for_with_its_length_from_the_schedule() {
+        let v = at("2026-11-20 10:00:00");
+        let ppt = section(&v, "submit")["items"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|i| i["id"] == "ppt")
+            .unwrap()
+            .clone();
+        let bullets: Vec<String> = ppt["bullets"].as_array().unwrap().iter().map(words).collect();
+        assert_eq!(
+            bullets.last().unwrap(),
+            "A 3–5 minute recording of one member presenting the slides, saved as GamePitch.mp4"
+        );
+        let todo: Vec<String> = v["ok"]["page"]["next"]["todo"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(words)
+            .collect();
+        assert!(todo.contains(
+            &"Record one member presenting the slides, and save GamePitch.mp4 in the folder".to_string()
+        ));
+        let record = section(&v, "record");
+        assert_eq!(record["tabs"].as_array().unwrap().len(), 2);
+        assert!(
+            words(&record["lede"][0]).starts_with("By Monday, November 23, one team member records a video")
+        );
+        let tool = tool_at("2026-11-20 10:00:00", "");
+        assert!(words(&section(&tool, "record")["lede"][1]).contains("ToolPitch.mp4"));
+    }
+
+    #[test]
     fn renaming_a_rubric_part_the_schedule_lacks_is_refused() {
         let mut strings: serde_json::Value = json(TOOL);
         strings["rubric"]["sound"] = "Sound design".into();
