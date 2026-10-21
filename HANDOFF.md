@@ -74,6 +74,8 @@ Page: three small decisions in the first `app.js` (R2.4), moved to the core. Cop
 
 ## What passed
 
+2026-10-21, T15: `./scripts/check.sh` passed, including `art.py --check-only` on the two Blackboard pictures; deployed as f259f12; both PNGs are live and match the committed files; the live browser check passed in all four profiles.
+
 2026-10-20, T14: `./scripts/check.sh` passed; core tests 78 passed; breaks 23 of 23 caught; browser check passed locally for both versions in Chromium, Firefox and WebKit. Builder: 19 kit tests, prove-checks caught 46 of 46, reference check passed (4e3ff62 on PR #1). Deployed as a5aeac8; the live browser check passed for both versions in all four profiles; the intake read the live tool example with nothing missing.
 
 2026-10-20, T13: `./scripts/check.sh` passed; browser check passed locally in Chromium, Firefox and WebKit. Builder: kit tests 16 passed, prove-checks caught 45 of 45, reference check passed (commit 4b5a802 on PR #1). Deployed as c8441ae; the live browser check passed in all four profiles; the live tool template matches the kit's byte for byte.
