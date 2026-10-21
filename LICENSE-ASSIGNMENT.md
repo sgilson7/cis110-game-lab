@@ -20,7 +20,7 @@ you changed.
 - The drawings in `data/img/art/`.
 - The PDF and single-file HTML editions the build writes.
 
-The code is under the MIT licence in `LICENSE`.
+The code (`crates/`, `web/`, `scripts/`, `tools/` and `tests/`) is under the MIT licence in `LICENSE`.
 
 ## What it does not cover
 
