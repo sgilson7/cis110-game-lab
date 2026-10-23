@@ -1,0 +1,372 @@
+{
+  "_note": "T18: the Changes sheet guide (tool version). scripts/merge_strings.py lays these keys over data/tool/strings.json at build time.",
+  "title": "Changes sheet guide",
+  "course": "CIS 110 LN182 · Introduction to Computers · Fall 2026, second 8-week session",
+  "names": {
+    "weekdays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "weekdays_short": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "months_short": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "am": "AM",
+    "pm": "PM"
+  },
+  "nav": [
+    {
+      "href": "#columns",
+      "label": "The columns"
+    },
+    {
+      "href": "#when",
+      "label": "When to add rows"
+    },
+    {
+      "href": "#counts",
+      "label": "What counts"
+    },
+    {
+      "href": "#examples",
+      "label": "Examples"
+    },
+    {
+      "href": "#faq",
+      "label": "FAQ"
+    }
+  ],
+  "intro": {
+    "eyebrow": "Capstone project · tool version · the Changes sheet",
+    "paragraphs": [
+      "The **Changes** sheet in `ToolData.xlsx` is your team's record of what changed in your files and why. Your team keeps it from checkpoint 2 to the end.",
+      "Your files have no branches or merges like the version control programmers use. This sheet is how a teammate catches up on what changed while they were away."
+    ],
+    "note": "The Changes lead makes sure the sheet is complete at each checkpoint. Everyone adds rows for their own changes."
+  },
+  "edition": {
+    "site": "https://sgilson7.github.io/cis110-game-lab/tool/changes/",
+    "links": [
+      {
+        "href": "../",
+        "label": "Assignment page"
+      },
+      {
+        "href": "../roles/",
+        "label": "Team roles guide"
+      },
+      {
+        "href": "../../changes/",
+        "label": "Game version of this guide"
+      }
+    ],
+    "print_note": "This is the printable version of the Changes sheet guide. The web version is at `{site}`."
+  },
+  "next": {
+    "label": "Next checkpoint",
+    "progress": "Checkpoint {n} of {count}",
+    "due_today": "Due today at {due_time}",
+    "due_tomorrow": "Due tomorrow at {due_time}",
+    "due_in": "Due in {days} days, at {due_time}",
+    "finished_heading": "The project is complete",
+    "finished_text": "Final submissions were due on {long:C7}. Watch Blackboard for your grade and feedback."
+  },
+  "checkpoints": {
+    "C1": {
+      "summary": "Join a team in Blackboard and introduce yourself in your team discussion.",
+      "detail": "Join a team in Blackboard. Then post a short introduction in your team discussion: when you can work, and what kind of tool would help you. Use the team discussion to talk until your shared folder is ready.",
+      "todo": [
+        "Join a team of {team_min} to {team_max} in Blackboard",
+        "Post an introduction in your team discussion",
+        "Reply to each teammate's introduction"
+      ]
+    },
+    "C2": {
+      "summary": "Choose your tool idea, give each person a role, and create your shared folder.",
+      "detail": "Each member pitches one tool idea in the team discussion, and your team picks one. The Coordinator then creates the shared folder and shares it with everyone, including me. Each member declares a role by adding a row to the **Team** sheet. The Changes lead adds the first rows to the **Changes** sheet, and your team writes a short team charter.",
+      "todo": [
+        "Pitch one tool idea each in your team discussion",
+        "Choose one idea and a Coordinator as a team",
+        "Create the shared folder and add the three templates",
+        "Share the folder with every teammate and me as **Can edit**",
+        "Declare your role: add your row to the **Team** sheet",
+        "Changes lead: log your idea and roles in the **Changes** sheet"
+      ],
+      "line": "Tool idea chosen; roles assigned; shared folder created"
+    },
+    "C3": {
+      "summary": "Have a draft of the design document in your folder.",
+      "detail": "Every heading in the design document has text. Each member leaves at least one comment on a section that someone else wrote.",
+      "todo": [
+        "Write something under every heading in `ToolDesign.docx`",
+        "Comment on one section a teammate wrote",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ],
+      "line": "Word tool design document draft in shared folder"
+    },
+    "C4": {
+      "summary": "Have a draft of the tool data workbook in your folder.",
+      "detail": "The workbook has at least {min_rows} complete rows of data, and every number in the design document appears in it.",
+      "todo": [
+        "Fill at least {min_rows} complete rows in `ToolData.xlsx`",
+        "Move every number from the design document into the workbook",
+        "Comment on one sheet a teammate filled",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ],
+      "line": "Excel tool data workbook draft in shared folder"
+    },
+    "C5": {
+      "summary": "Have a draft of the presentation and its recording in your folder, so everything is in.",
+      "detail": "Every slide in the presentation has a draft, and one member has recorded a video presenting it, saved as `ToolPitch.mp4`. After this deadline, I download your folder and build a working prototype of your tool over Thanksgiving break.",
+      "todo": [
+        "Draft every slide in `ToolPitch.pptx`",
+        "Draw a mock-up of one screen of your tool with shapes",
+        "Record one member presenting the slides, and save `ToolPitch.mp4` in the folder",
+        "Comment on one slide a teammate made",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ],
+      "line": "PowerPoint design summary and presentation recording in shared folder"
+    },
+    "C6": {
+      "summary": "Try your prototype and add your change requests.",
+      "detail": "From {links_by}, try the prototype I send you and add what should change to the **Changes** sheet. Each member adds at least one request by this date. You can keep adding requests until {long:C7}.",
+      "todo": [
+        "Try your team's prototype",
+        "Add at least one change request each to the **Changes** sheet, with **Kind** set to **Request**",
+        "Read my replies and comments in your files"
+      ]
+    },
+    "C7": {
+      "summary": "Submit your final files, the folder link, and each member's contribution.",
+      "detail": "Submit the folder link in Blackboard with one sentence about what each member contributed. Then complete the private peer rating survey in Blackboard. After this deadline, I plan to make a final pass on your tool using your change requests.",
+      "todo": [
+        "Make your final edits to all three files",
+        "Check that the **Changes** sheet is complete",
+        "Submit the folder link in Blackboard with each member's contribution",
+        "Complete the private peer rating survey"
+      ]
+    }
+  },
+  "rubric": {
+    "concept": "Tool concept and usable scope",
+    "word": "Word tool design document",
+    "excel": "Excel structured tool information",
+    "ppt": "PowerPoint presentation and recording"
+  },
+  "stats": [
+    {
+      "value": "{team_min}–{team_max}",
+      "label": "students per team"
+    },
+    {
+      "value": "{files}",
+      "label": "Office files in one shared folder"
+    },
+    {
+      "value": "{checkpoints}",
+      "label": "checkpoints, with one graded submission"
+    },
+    {
+      "value": "{total}",
+      "label": "points, graded once"
+    }
+  ],
+  "status": {
+    "done": "Closed",
+    "next": "Next",
+    "upcoming": "Upcoming",
+    "graded": "Graded · {total} points",
+    "break": "No checkpoints. I build your tools over the break."
+  },
+  "sections": [
+    {
+      "id": "columns",
+      "kind": "rules",
+      "eyebrow": "The sheet",
+      "heading": "What each column holds",
+      "lede": [
+        "One row is one change. Keep the header row as it is, because I use it to read the sheet."
+      ],
+      "items": [
+        {
+          "title": "#",
+          "text": "Number the rows 1, 2, 3, and so on. Don't reuse a number or delete a row."
+        },
+        {
+          "title": "Checkpoint",
+          "text": "The checkpoint the change belongs to, from 2 to {checkpoints}."
+        },
+        {
+          "title": "Kind",
+          "text": "**Change we made** for an edit to your files. **Request** for something you want changed in the prototype, after you try it."
+        },
+        {
+          "title": "Change, in your words",
+          "text": "One sentence: what changed, or what you want. Write it so a teammate who missed the last week understands it."
+        },
+        {
+          "title": "Where in the files",
+          "text": "The file and the heading or sheet, such as `ToolDesign.docx`, section 4."
+        },
+        {
+          "title": "Why",
+          "text": "The reason, in one sentence. For a request, say what happened when you tried the prototype."
+        },
+        {
+          "title": "Added by (role)",
+          "text": "Your role, such as Data lead. Use your role, not your name."
+        }
+      ]
+    },
+    {
+      "id": "when",
+      "kind": "flow",
+      "eyebrow": "Every checkpoint",
+      "heading": "When to add rows",
+      "lede": [
+        "The sheet is part of every checkpoint from 2 on."
+      ],
+      "labels": {
+        "lead": "Changes lead",
+        "team": "Your team",
+        "me": "Instructor"
+      },
+      "items": [
+        {
+          "owner": "lead",
+          "title": "Start the log",
+          "text": "By {short:C2}, add the first rows: the idea your team chose and who holds each role."
+        },
+        {
+          "owner": "team",
+          "title": "Log each change",
+          "text": "Whoever makes a change adds its row. Before each checkpoint, the Changes lead checks that nothing is missing."
+        },
+        {
+          "owner": "team",
+          "title": "Add requests",
+          "text": "From {links_by}, try the prototype. Each member adds at least one row with **Kind** set to **Request** by {short:C6}."
+        },
+        {
+          "owner": "me",
+          "title": "Reply",
+          "text": "I reply to each request in a comment on its row, until {short:C7}."
+        },
+        {
+          "owner": "lead",
+          "title": "Final check",
+          "text": "Before {short:C7}, read the sheet top to bottom. I use your requests for the final pass."
+        }
+      ]
+    },
+    {
+      "id": "counts",
+      "kind": "rules",
+      "eyebrow": "What counts",
+      "heading": "What counts as a change",
+      "items": [
+        {
+          "title": "Log it",
+          "text": "A new, changed, or removed rule, control, number, screen, or idea. A section moved from one file to another. A decision your team reversed."
+        },
+        {
+          "title": "Skip it",
+          "text": "A typo fix, formatting, or rewording that keeps the meaning."
+        },
+        {
+          "title": "Not sure",
+          "text": "Log it. A short row costs less than a teammate building on an old version."
+        }
+      ]
+    },
+    {
+      "id": "examples",
+      "kind": "rules",
+      "eyebrow": "Examples",
+      "heading": "Example rows",
+      "lede": [
+        "These rows come from the example folder for Recipe Scaler, a made-up tool on the assignment page."
+      ],
+      "items": [
+        {
+          "title": "Row 1 · checkpoint 2 · Change we made",
+          "text": "We chose Recipe Scaler and recorded each person's role in the **Team** sheet. Added by: Changes lead."
+        },
+        {
+          "title": "Row 2 · checkpoint 4 · Change we made",
+          "text": "Servings go up to 50, not 100. Where: **Inputs** sheet and `ToolDesign.docx`, section 5. Why: nobody cooks for 100 at home. Added by: Data lead."
+        },
+        {
+          "title": "Row 3 · checkpoint 6 · Request",
+          "text": "Show grams beside cups. Where: `ToolDesign.docx`, section 9. Why: our baking teacher uses grams. Added by: Design writer."
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "kind": "faq",
+      "eyebrow": "Questions",
+      "heading": "Frequently asked questions",
+      "items": [
+        {
+          "title": "Do I add rows, or only the Changes lead?",
+          "text": "Everyone adds rows for their own changes. The Changes lead makes sure the sheet is complete at each checkpoint."
+        },
+        {
+          "title": "Version history already shows changes. Why keep this sheet?",
+          "text": "Version history shows who changed a file and when. It doesn't say what the change means or why, and your teammates need both."
+        },
+        {
+          "title": "Is the sheet graded?",
+          "text": "It's part of shared-folder organization and collaboration. I check it at each checkpoint and read it when I grade your folder."
+        },
+        {
+          "title": "We changed our minds. Can we delete a row?",
+          "text": "No. Add a new row that says what changed back, and why."
+        }
+      ]
+    }
+  ],
+  "footer": [
+    "CIS 110 LN182 · Fall 2026 · Instructor: Sam Gilson",
+    "This page runs in your browser. It stores nothing and sends nothing about you."
+  ]
+}

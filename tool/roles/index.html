@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<!-- The team roles guide (T18), tool version: the same page script and core as the
+     assignment page. build.sh lays data/tool/roles/overlay.json over data/tool/strings.json
+     into tool/roles/data/strings.json, beside the shared schedule, clock and glossary. -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Reference default. connect-src 'self' keeps fetches on this origin;
+       'wasm-unsafe-eval' lets the page compile its own WebAssembly module;
+       form-action 'none' blocks form posts. A meta policy cannot stop data
+       leaving by navigation, so the browser check still watches requests. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="CIS 110 tool design project, team roles guide: what each team role does at each checkpoint, and how to declare your roles at checkpoint 2.">
+  <title>Team roles guide · Tool version · CIS 110</title>
+  <link rel="stylesheet" href="../../style.css?v=bef8b071fe4f">
+</head>
+<body data-ready="false">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <p class="brand"><span class="chip">CIS 110</span> <span id="course"></span></p>
+      <nav id="nav" aria-label="Sections"></nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-text">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="title"></h1>
+        <div id="intro"></div>
+        <p class="note mono" id="intro-note"></p>
+        <p class="editions" id="editions"></p>
+        <p class="note" id="edition-note"></p>
+      </div>
+      <aside class="next" id="next" aria-label="Next checkpoint"></aside>
+    </section>
+    <section class="stats" id="stats" aria-label="The project in numbers"></section>
+    <div id="sections"></div>
+    <p id="message" role="status"></p>
+  </main>
+  <footer class="wrap" id="footer"></footer>
+  <noscript><p class="wrap">This page needs JavaScript and WebAssembly. The <a href="../../cis110-tool-project.pdf">PDF of the assignment page</a> has the roles and checkpoints.</p></noscript>
+  <script type="module" src="../../app.js?v=bef8b071fe4f"></script>
+</body>
+</html>

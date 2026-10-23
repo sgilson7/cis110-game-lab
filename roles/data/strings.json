@@ -1,0 +1,394 @@
+{
+  "_note": "T18: the team roles guide (game version). scripts/merge_strings.py lays these keys over data/strings.json at build time; every other key comes from that file.",
+  "title": "Team roles guide",
+  "course": "CIS 110 LN182 · Introduction to Computers · Fall 2026, second 8-week session",
+  "names": {
+    "weekdays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "weekdays_short": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "months_short": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "am": "AM",
+    "pm": "PM"
+  },
+  "nav": [
+    {
+      "href": "#roles",
+      "label": "The roles"
+    },
+    {
+      "href": "#declare",
+      "label": "Declare your roles"
+    },
+    {
+      "href": "#pairs",
+      "label": "In a smaller team"
+    },
+    {
+      "href": "#faq",
+      "label": "FAQ"
+    }
+  ],
+  "intro": {
+    "eyebrow": "Capstone project · game version · team roles",
+    "paragraphs": [
+      "Each member of your team takes a role, and each role owns one part of the project. You declare your roles at checkpoint 2, on {long:C2}.",
+      "Owning a part means you make sure it gets done. Everyone still writes, comments, and requests changes."
+    ],
+    "note": "Roles are recorded in the **Team** sheet. Your role, version history, and comments show what you contributed."
+  },
+  "edition": {
+    "site": "https://sgilson7.github.io/cis110-game-lab/roles/",
+    "links": [
+      {
+        "href": "../",
+        "label": "Assignment page"
+      },
+      {
+        "href": "../changes/",
+        "label": "Changes sheet guide"
+      },
+      {
+        "href": "../tool/roles/",
+        "label": "Tool version of this guide"
+      }
+    ],
+    "print_note": "This is the printable version of the team roles guide. The web version is at `{site}`."
+  },
+  "next": {
+    "label": "Next checkpoint",
+    "progress": "Checkpoint {n} of {count}",
+    "due_today": "Due today at {due_time}",
+    "due_tomorrow": "Due tomorrow at {due_time}",
+    "due_in": "Due in {days} days, at {due_time}",
+    "finished_heading": "The project is complete",
+    "finished_text": "Final submissions were due on {long:C7}. Watch Blackboard for your grade and feedback."
+  },
+  "checkpoints": {
+    "C1": {
+      "summary": "Join a team in Blackboard and introduce yourself in your team discussion.",
+      "detail": "Join a team in Blackboard. Then post a short introduction in your team discussion: when you can work, and what games you like. Use the team discussion to talk until your shared folder is ready.",
+      "todo": [
+        "Join a team of {team_min} to {team_max} in Blackboard",
+        "Post an introduction in your team discussion",
+        "Reply to each teammate's introduction"
+      ]
+    },
+    "C2": {
+      "summary": "Choose your game idea, give each person a role, and create your shared folder.",
+      "detail": "Each member pitches one game idea in the team discussion, and your team picks one. The Coordinator then creates the shared folder and shares it with everyone, including me. Each member declares a role by adding a row to the **Team** sheet. The Changes lead adds the first rows to the **Changes** sheet, and your team writes a short team charter.",
+      "todo": [
+        "Pitch one game idea each in your team discussion",
+        "Choose one idea and a Coordinator as a team",
+        "Create the shared folder and add the three templates",
+        "Share the folder with every teammate and me as **Can edit**",
+        "Declare your role: add your row to the **Team** sheet",
+        "Changes lead: log your idea and roles in the **Changes** sheet"
+      ]
+    },
+    "C3": {
+      "summary": "Have a draft of the design document in your folder.",
+      "detail": "Every heading in the design document has text. Each member leaves at least one comment on a section that someone else wrote.",
+      "todo": [
+        "Write something under every heading in `GameDesign.docx`",
+        "Comment on one section a teammate wrote",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ]
+    },
+    "C4": {
+      "summary": "Have a draft of the game data workbook in your folder.",
+      "detail": "The workbook has at least {min_rows} complete rows of game data, and every number in the design document appears in it.",
+      "todo": [
+        "Fill at least {min_rows} complete rows in `GameData.xlsx`",
+        "Move every number from the design document into the workbook",
+        "Comment on one sheet a teammate filled",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ]
+    },
+    "C5": {
+      "summary": "Have a draft of the presentation and its recording in your folder, so everything is in.",
+      "detail": "Every slide in the presentation has a draft, and one member has recorded a video presenting it, saved as `GamePitch.mp4`. After this deadline, I download your folder and build a playable prototype of your game over Thanksgiving break.",
+      "todo": [
+        "Draft every slide in `GamePitch.pptx`",
+        "Draw a mock-up of one screen with shapes",
+        "Record one member presenting the slides, and save `GamePitch.mp4` in the folder",
+        "Comment on one slide a teammate made",
+        "Log this checkpoint's changes in the **Changes** sheet"
+      ],
+      "line": "PowerPoint design summary and presentation recording in shared folder"
+    },
+    "C6": {
+      "summary": "Play your prototype and add your change requests.",
+      "detail": "From {links_by}, play the prototype I send you and add what should change to the **Changes** sheet. Each member adds at least one request by this date. You can keep adding requests until {long:C7}.",
+      "todo": [
+        "Play your team's prototype",
+        "Add at least one change request each to the **Changes** sheet, with **Kind** set to **Request**",
+        "Read my replies and comments in your files"
+      ]
+    },
+    "C7": {
+      "summary": "Submit your final files, the folder link, and each member's contribution.",
+      "detail": "Submit the folder link in Blackboard with one sentence about what each member contributed. Then complete the private peer rating survey in Blackboard. After this deadline, I plan to make a final pass on your game using your change requests.",
+      "todo": [
+        "Make your final edits to all three files",
+        "Check that the **Changes** sheet is complete",
+        "Submit the folder link in Blackboard with each member's contribution",
+        "Complete the private peer rating survey"
+      ]
+    }
+  },
+  "rubric": {
+    "ppt": "PowerPoint presentation and recording"
+  },
+  "stats": [
+    {
+      "value": "{team_min}–{team_max}",
+      "label": "students per team"
+    },
+    {
+      "value": "{files}",
+      "label": "Office files in one shared folder"
+    },
+    {
+      "value": "{checkpoints}",
+      "label": "checkpoints, with one graded submission"
+    },
+    {
+      "value": "{total}",
+      "label": "points, graded once"
+    }
+  ],
+  "status": {
+    "done": "Closed",
+    "next": "Next",
+    "upcoming": "Upcoming",
+    "graded": "Graded · {total} points",
+    "break": "No checkpoints. I build your games over the break."
+  },
+  "sections": [
+    {
+      "id": "roles",
+      "kind": "roles",
+      "eyebrow": "Team roles",
+      "heading": "What each role does",
+      "lede": [
+        "Each card says what the role owns and what it does at each checkpoint."
+      ],
+      "items": [
+        {
+          "title": "Coordinator",
+          "text": "Keeps the team on schedule and is the team's contact with me.",
+          "file": "Team sheet and submission",
+          "bullets": [
+            "At checkpoint 2, creates the shared folder, adds the three templates, and shares it with each teammate and me as **Can edit**",
+            "Before each checkpoint, checks the to-do list on the assignment page and reminds the team in the team discussion",
+            "Keeps one copy of each file, with the template's file name, inside the shared folder",
+            "If a teammate goes quiet, follows the team charter, then sends me a Blackboard message",
+            "At checkpoint 7, submits the folder link with one sentence about what each member contributed"
+          ]
+        },
+        {
+          "title": "Design writer",
+          "text": "Leads the design document and keeps it in the team's own words.",
+          "file": "GameDesign.docx",
+          "bullets": [
+            "At checkpoint 3, makes sure every heading has text",
+            "Asks teammates in comments to write the parts they know best",
+            "Keeps rules and controls exact: a number, not a word like \"fast\"",
+            "Checks with the Data lead that every number in the document matches the workbook",
+            "Writes section 10 from what each member says about their AI use, one line per use"
+          ]
+        },
+        {
+          "title": "Data lead",
+          "text": "Turns every number and list in the design into rows in the workbook.",
+          "file": "GameData.xlsx",
+          "bullets": [
+            "At checkpoint 4, fills at least {min_rows} complete rows under the template's headers",
+            "Moves every number and list from the design document into the workbook",
+            "Writes a worked example and the expected result for each rule in the **Rules** sheet",
+            "Keeps the **Words** sheet: each term, what it means, and any word not to use for it",
+            "Keeps the sheet names and headers as they are, because I use them to find each part"
+          ]
+        },
+        {
+          "title": "Presenter",
+          "text": "Builds the slides and records the presentation, or asks another member to record it.",
+          "file": "GamePitch.pptx and GamePitch.mp4",
+          "bullets": [
+            "At checkpoint 2, collects one pitch slide from each member",
+            "At checkpoint 5, builds the {slides_min} to {slides_max} slides, with the screen mock-up drawn with shapes",
+            "Keeps the slides in the team's own words, with more pictures and fewer words than the document",
+            "Records the {recording_min} to {recording_max} minute presentation and saves it as `GamePitch.mp4` in the folder"
+          ]
+        },
+        {
+          "title": "Art and sound lead",
+          "text": "Finds or makes the images and sounds, and makes sure your team may use each one.",
+          "file": "Assets sheet",
+          "bullets": [
+            "Finds or makes every image and sound the game uses",
+            "Lists each one in the **Assets** sheet: file name, who made it, license, and link",
+            "Writes section 8 of the design document, on the look, sound, and mood, with the Design writer",
+            "Leaves out any file without a license that allows reuse"
+          ]
+        },
+        {
+          "title": "Changes lead",
+          "text": "Keeps the **Changes** sheet, your team's record of what changed and why.",
+          "file": "Changes sheet",
+          "bullets": [
+            "At checkpoint 2, adds the first rows: the idea your team chose and who holds each role",
+            "Before each later checkpoint, checks that every change a teammate needs to know about has a row",
+            "Asks teammates to add rows for their own changes, and adds rows for changes nobody logged",
+            "After the prototype, makes sure each member adds at least one change request",
+            "Before checkpoint 7, reads the sheet top to bottom so the final pass has a clear list"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "declare",
+      "kind": "flow",
+      "eyebrow": "Checkpoint 2",
+      "heading": "Declare your roles",
+      "lede": [
+        "Your roles are part of checkpoint 2, due {long:C2}. Do these steps in order."
+      ],
+      "labels": {
+        "team": "Your team",
+        "member": "Each member",
+        "coord": "Coordinator",
+        "lead": "Changes lead"
+      },
+      "items": [
+        {
+          "owner": "team",
+          "title": "Read the roles",
+          "text": "Read this guide together and talk about it in your team discussion."
+        },
+        {
+          "owner": "team",
+          "title": "Choose",
+          "text": "Agree who takes each role. In a smaller team, some people take two."
+        },
+        {
+          "owner": "coord",
+          "title": "Create the folder",
+          "text": "The Coordinator creates the shared folder and adds the three templates."
+        },
+        {
+          "owner": "member",
+          "title": "Declare your role",
+          "text": "Add a row to the **Team** sheet in `GameData.xlsx`: your name and your role."
+        },
+        {
+          "owner": "lead",
+          "title": "Log it",
+          "text": "Add the first rows to the **Changes** sheet: the idea you chose and who holds each role."
+        },
+        {
+          "owner": "team",
+          "title": "Write the charter",
+          "text": "Under the **Team** sheet, write when you meet, how you reach each other, and what you do if someone goes quiet."
+        }
+      ]
+    },
+    {
+      "id": "pairs",
+      "kind": "rules",
+      "eyebrow": "Team size",
+      "heading": "In a smaller team",
+      "lede": [
+        "There are more roles than people on most teams. Pair roles that fit together."
+      ],
+      "items": [
+        {
+          "title": "Team of five",
+          "text": "One person takes two roles. The Coordinator often keeps the **Changes** sheet too, since both keep track of the team."
+        },
+        {
+          "title": "Team of four",
+          "text": "Two people take two roles. Try Coordinator with Changes lead, and Presenter with Art and sound lead."
+        },
+        {
+          "title": "Team of three",
+          "text": "Each person takes two roles. Try Coordinator with Changes lead, Design writer with Presenter, and Data lead with Art and sound lead."
+        },
+        {
+          "title": "Switching roles",
+          "text": "You can switch at any checkpoint. Update the **Team** sheet, and add a row to the **Changes** sheet."
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "kind": "faq",
+      "eyebrow": "Questions",
+      "heading": "Frequently asked questions",
+      "items": [
+        {
+          "title": "Does my role change my grade?",
+          "text": "Your role doesn't change the points. Your documented contribution counts: a member without one might receive a different grade from the rest of the team."
+        },
+        {
+          "title": "What if two people want the same role?",
+          "text": "One person owns it, and the other helps. Record both in the **Team** sheet, and say who owns it."
+        },
+        {
+          "title": "Who records the presentation?",
+          "text": "The Presenter, or another member if the Presenter would rather not. Your voice is required, and your face on camera is optional."
+        },
+        {
+          "title": "What if the person in a role goes quiet?",
+          "text": "Follow your team charter. Then send me a Blackboard message before the next checkpoint."
+        }
+      ]
+    }
+  ],
+  "footer": [
+    "CIS 110 LN182 · Fall 2026 · Instructor: Sam Gilson",
+    "This page runs in your browser. It stores nothing and sends nothing about you."
+  ]
+}
